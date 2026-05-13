@@ -131,7 +131,9 @@ body {
 .btn-outlined:hover {
   color: var(--text-white);
   border: 2px solid transparent;
-  background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box, var(--rainbow-gradient) border-box;
+  background:
+    linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
+    var(--rainbow-gradient) border-box;
   background-size: 400%;
   animation: glowing 20s linear infinite;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -233,7 +235,9 @@ body {
 .feature-card:hover {
   transform: translateY(-10px);
   border: 2px solid transparent;
-  background: linear-gradient(var(--bg-dark-secondary), var(--bg-dark-secondary)) padding-box, var(--rainbow-gradient) border-box;
+  background:
+    linear-gradient(var(--bg-dark-secondary), var(--bg-dark-secondary)) padding-box,
+    var(--rainbow-gradient) border-box;
   background-size: 400%;
   animation: glowing 20s linear infinite;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
@@ -274,6 +278,10 @@ body {
   z-index: 1;
 }
 
+.portfolio-card.no-border::before {
+  opacity: 0;
+}
+
 .portfolio-card::before {
   content: '';
   position: absolute;
@@ -282,9 +290,13 @@ body {
   padding: 2px;
   background: var(--rainbow-gradient);
   background-size: 400%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
   z-index: 10;
@@ -451,6 +463,39 @@ body {
   padding-top: 0;
   padding-bottom: 20px;
   font-size: 0.95rem;
+  color: var(--text-muted);
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Accordion flush item styling */
+.accordion-flush .accordion-item {
+  background-color: transparent;
+  border-bottom: 1px solid var(--glass-border);
+  color: var(--text-light);
+}
+
+.accordion-flush .accordion-button {
+  background-color: var(--glass-bg-low);
+  color: var(--text-white);
+  box-shadow: none;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.accordion-flush .accordion-button:not(.collapsed) {
+  background-color: var(--glass-bg-med);
+  color: var(--accent-orange);
+  box-shadow: none;
+}
+
+.accordion-flush .accordion-button::after {
+  filter: invert(1);
+}
+
+.accordion-flush .accordion-button:not(.collapsed)::after {
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(320deg);
 }
 
 .custom-progress {
@@ -490,7 +535,9 @@ body {
   object-position: center;
   border-radius: 10px;
   filter: brightness(1);
-  transition: transform 0.5s ease, filter 0.3s ease;
+  transition:
+    transform 0.5s ease,
+    filter 0.3s ease;
 }
 
 .gallery-frame:hover .project-slide-img {
