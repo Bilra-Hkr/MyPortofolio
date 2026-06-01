@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laporan Praktikum - Deriel Chaerahman</title>
+    <title>Laporan Praktikum 7 - Deriel Chaerahman</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -22,7 +22,6 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
@@ -49,13 +48,12 @@
                     <li class="breadcrumb-item active text-white" aria-current="page">Laporan Praktikum</li>
                 </ol>
             </nav>
-
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
                     <h1 class="display-5 fw-bold text-gradient mb-3">Laporan Praktikum 7</h1>
-                    <p class="text-white fs-5">Dokumentasi Instalasi & Konfigurasi Framework Laravel.</p>
-                    <p class="text-secondary fs-7">Dibuat : 13 Mei 2026</p>
-                    <a href="https://github.com/Bilra-Hkr/MyPortofolio" target="_blank"
+                    <p class="text-white fs-5">Migration, Seeding, Routing, Model, Controller, View</p>
+                    <p class="text-secondary fs-7">Dibuat : 27 Mei 2026</p>
+                    <a href="https://github.com/Bilra-Hkr/PemrogramanWeb_2411533007" target="_blank"
                         class="btn btn-outline-light rounded-pill px-4 py-2">
                         <i class="bi bi-github me-2"></i> Repository GitHub
                     </a>
@@ -70,310 +68,502 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <!-- <div class="portfolio-card mb-5">
-                        <img src="../img/laravel.png" class="card-img-top" alt="Instalasi Laravel">
+
+                    <!-- ==================== TUJUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
                         <div class="card-body">
-                            <h2 class="card-title text-white">Landasan Teori</h2>
-                            <p class="text-secondary">Laravel adalah framework PHP open-source yang populer dengan
-                                arsitektur MVC (Model-View-Controller). Framework ini menawarkan berbagai fitur unggulan
-                                seperti Eloquent ORM untuk pengelolaan database yang intuitif dan Blade Templating
-                                Engine untuk desain antarmuka yang dinamis. </p>
-                            Accordion Landasan teori
-                            <div class="accordion accordion-flush custom-accordion" id="accordionFlushExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                            aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Accordion Item #1
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                            first item's accordion body.</div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingTwo">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                            aria-expanded="false" aria-controls="flush-collapseTwo">
-                                            Accordion Item #2
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                            second item's accordion body. Let's imagine this being filled with some
-                                            actual content.</div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingThree">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                            aria-expanded="false" aria-controls="flush-collapseThree">
-                                            Accordion Item #3
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">Placeholder content for this accordion, which is
-                                            intended to demonstrate the <code>.accordion-flush</code> class. This is the
-                                            third item's accordion body. Nothing more exciting happening here in terms
-                                            of content, but just filling up the space to make it look, at least at first
-                                            glance, a bit more representative of how this would look in a real-world
-                                            application.</div>
-                                    </div>
-                                </div>
-                            </div>
-                            Akhir accordion landasan
+                            <h4 class="fw-bold text-white mb-3"></i>Tujuan Praktikum</h4>
+                            <p class="text-secondary">
+                                Memahami dan mampu membangun aplikasi web berbasis framework Laravel dengan menerapkan
+                                konsep <strong>MVC (Model-View-Controller)</strong>.
+                            </p>
+                            <ul class="text-secondary">
+                                <li>Mengelola struktur database menggunakan <strong>Migration</strong>.</li>
+                                <li>Mengisi data awal ke database menggunakan <strong>Seeding</strong>.</li>
+                                <li>Membuat dan mengatur <strong>Routing</strong> aplikasi Laravel.</li>
+                                <li>Membangun <strong>Model</strong> dengan Eloquent ORM untuk interaksi data.</li>
+                                <li>Membuat <strong>Controller</strong> sebagai penghubung antara Model dan View.</li>
+                                <li>Menampilkan antarmuka pengguna menggunakan <strong>Blade Template Engine</strong>.
+                                </li>
+                                <li>Mengimplementasikan operasi <strong>CRUD</strong> (Create, Read, Update, Delete)
+                                    pada data mahasiswa.</li>
+                            </ul>
                         </div>
-                    </div> -->
-                    <div class="card contact-info-card mb-4">
+                    </div>
+
+                    <!-- ==================== LANDASAN TEORI ==================== -->
+                    <div class="card contact-info-card mb-5">
                         <div class="card-body">
-                            <h4 class="fw-bold text-white mb-3">Landasan Teori</h4>
-                            <p class="text-secondary text-justify">Laravel adalah framework PHP open-source yang populer
-                                dengan
-                                arsitektur MVC (Model-View-Controller). Framework ini menawarkan berbagai fitur unggulan
-                                seperti Eloquent ORM untuk pengelolaan database yang intuitif dan Blade Templating
-                                Engine untuk desain antarmuka yang dinamis. </p>
-                            <!-- Accordion Landasan teori -->
-                            <div class="accordion accordion-flush custom-accordion" id="accordionFlushExample">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-book me-2"></i>Landasan Teori</h4>
+                            <p class="text-secondary">
+                                Laravel adalah framework PHP open-source yang menggunakan pola arsitektur
+                                <strong>MVC (Model-View-Controller)</strong>. Framework ini menyediakan berbagai fitur
+                                bawaan yang memudahkan proses pengembangan aplikasi web modern, antara lain:
+                            </p>
+
+                            <div class="accordion accordion-flush custom-accordion" id="accordionTeori">
+
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
+                                    <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                            aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Eloquent ORM (Object-Relational Mapping)
+                                            data-bs-toggle="collapse" data-bs-target="#teori-migration"
+                                            aria-expanded="false">
+                                            Migration
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <p class="text-justify">Memudahkan interaksi dengan database
-                                                menggunakan sintaks PHP yang intuitif. Anda dapat mendefinisikan model
-                                                untuk setiap tabel database dan melakukan operasi CRUD (Create, Read,
-                                                Update, Delete)
-                                                dengan mudah. Eloquent juga mendukung relasi antar tabel (one-to-one,
-                                                one-to-many,
-                                                many-to-many).</p>
+                                    <div id="teori-migration" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Migration adalah fitur Laravel yang digunakan untuk membuat dan mengelola
+                                            struktur database menggunakan kode program (PHP), bukan SQL mentah. Dengan
+                                            migration, perubahan skema database dapat dilacak dan di-<em>rollback</em>
+                                            kapan saja layaknya sistem version control. File migration disimpan di
+                                            folder <code>database/migrations</code>.
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                    <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                            aria-expanded="false" aria-controls="flush-collapseTwo">
-                                            Blade Templating Engine
+                                            data-bs-toggle="collapse" data-bs-target="#teori-seeding"
+                                            aria-expanded="false">
+                                            Seeding
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <p class="text-justify">Sistem templating yang sederhana namun powerful,
-                                                memungkinkan Anda menggunakan sintaks PHP dalam template HTML dengan
-                                                cara yang
-                                                bersih dan aman. Blade menyediakan direktif-direktif seperti @if,
-                                                @foreach, @extends,
-                                                @yield, dan komponen untuk membuat tampilan dinamis.</p>
+                                    <div id="teori-seeding" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Seeding digunakan untuk mengisi data awal (dummy/inisial) ke dalam database
+                                            secara otomatis. Seeder sangat membantu saat pengujian aplikasi, pembuatan
+                                            data dummy, maupun menyiapkan data default sistem. File seeder disimpan di
+                                            folder <code>database/seeders</code>.
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingThree">
+                                    <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                            aria-expanded="false" aria-controls="flush-collapseThree">
-                                            Artisan Console
-                                        </button>
-                                    </h2>
-                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <p class="text-justify">Command-line interface (CLI) yang disertakan dengan
-                                                Laravel. Artisan
-                                                menyediakan banyak perintah berguna untuk otomatisasi tugas-tugas umum
-                                                seperti
-                                                membuat model, migration, controller, seeder, menjalankan pengujian,
-                                                membersihkan cache,
-                                                dan banyak lagi.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingFourth">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseFourth"
-                                            aria-expanded="false" aria-controls="flush-collapseFourth">
+                                            data-bs-toggle="collapse" data-bs-target="#teori-routing"
+                                            aria-expanded="false">
                                             Routing
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseFourth" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingFourth" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <p class="text-justify">Sistem perutean yang fleksibel memungkinkan Anda
-                                                mendefinisikan URL aplikasi
-                                                Anda dan mengaitkannya dengan controller atau closure functions. Laravel
-                                                mendukung
-                                                berbagai jenis rute dan middleware untuk mengontrol akses. </p>
+                                    <div id="teori-routing" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Routing digunakan untuk menentukan URL dan respons yang diberikan aplikasi
+                                            terhadap request dari pengguna. Semua routing web Laravel berada pada file
+                                            <code>routes/web.php</code>. Laravel mendukung berbagai jenis routing
+                                            seperti
+                                            routing dasar, routing parameter, named route, route group, hingga resource
+                                            route untuk CRUD.
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingFive">
+                                    <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseFive"
-                                            aria-expanded="false" aria-controls="flush-collapseFive">
-                                            MVC (Model-View-Controller)
+                                            data-bs-toggle="collapse" data-bs-target="#teori-model"
+                                            aria-expanded="false">
+                                            Model (Eloquent ORM)
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseFive" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <p class="text-justify"> Laravel mempermudah pengembangan aplikasi web
-                                                dengan memisahkan logika bisnis, pengelolaan data, dan tampilan
-                                                antarmuka.</p>
+                                    <div id="teori-model" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Model adalah representasi dari tabel database dalam bentuk kelas PHP.
+                                            Laravel menggunakan <strong>Eloquent ORM</strong> untuk mempermudah
+                                            manipulasi data — mulai dari membaca, menambah, mengubah, hingga menghapus
+                                            data — tanpa harus menulis query SQL secara langsung. File model disimpan di
+                                            folder <code>app/Models</code>.
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingSix">
+                                    <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseSix"
-                                            aria-expanded="false" aria-controls="flush-collapseSix">
+                                            data-bs-toggle="collapse" data-bs-target="#teori-controller"
+                                            aria-expanded="false">
                                             Controller
                                         </button>
                                     </h2>
-                                    <div id="flush-collapseSix" class="accordion-collapse collapse"
-                                        aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                            <p class="text-justify">Sebagai penghubung yang memproses logika aplikasi.
-                                            </p>
+                                    <div id="teori-controller" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Controller bertugas mengatur logika aplikasi dan menjadi jembatan antara
+                                            Model dan View. Laravel menyediakan <strong>Resource Controller</strong>
+                                            yang secara otomatis menyiapkan 7 method standar CRUD: <code>index</code>,
+                                            <code>create</code>, <code>store</code>, <code>show</code>,
+                                            <code>edit</code>, <code>update</code>, dan <code>destroy</code>. File
+                                            controller disimpan di folder <code>app/Http/Controllers</code>.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-view"
+                                            aria-expanded="false">
+                                            View (Blade Template Engine)
+                                        </button>
+                                    </h2>
+                                    <div id="teori-view" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            View digunakan untuk menampilkan halaman kepada pengguna. Laravel
+                                            menggunakan <strong>Blade Template Engine</strong> yang menyediakan
+                                            berbagai direktif seperti <code>@extends</code>, <code>@section</code>,
+                                            <code>@yield</code>, <code>@foreach</code>, dan <code>@if</code>.
+                                            File view disimpan di folder <code>resources/views</code> dengan ekstensi
+                                            <code>.blade.php</code>.
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                            <!-- Akhir accordion landasan -->
                         </div>
                     </div>
 
-                    <!-- Section Langkah kerja praktikum -->
-                    <div class="card contact-info-card mb-4">
+                    <!-- ==================== ALAT DAN BAHAN ==================== -->
+                    <div class="card contact-info-card mb-5">
                         <div class="card-body">
-                            <h4 class="fw-bold text-white mb-3">Langkah Kerja</h4>
-                            <p class="text-secondary">Praktikum ini bertujuan untuk menyiapkan lingkungan pengembangan
-                                hingga project berhasil dijalankan.</p>
-                            <p class="text-secondary">Install Tools : PHP, XAMPP atau Laragon, Git, Composer, Node, IDE
-                                Visual Studio Code.</p>
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-tools me-2"></i>Alat dan Bahan</h4>
+                            <ul class="text-secondary mb-0">
+                                <li>Laptop / Komputer</li>
+                                <li>XAMPP (Apache + MySQL)</li>
+                                <li>Visual Studio Code</li>
+                                <li>Composer, Git, Node.js, NPM</li>
+                                <li>Project Laravel (dari Praktikum 6)</li>
+                                <li>Browser (Google Chrome / Firefox)</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                            <p class="text-white mb-2">1. Pengecekan Seluruh Requirement Laravel:</p>
-                            <p class="text-secondary">- Memastikan PHP minimal versi 8.2 untuk menjalankan Laravel
-                                12.<br>
-                                <img src="img/php.png" alt="PHP Version" class="img-fluid rounded mt-2 mb-3">
+                    <!-- ==================== LANGKAH PENGERJAAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-4"><i class="bi bi-list-ol me-2"></i>Langkah Pengerjaan
+                            </h4>
+
+                            <!-- LANGKAH 1: Konfigurasi Database -->
+                            <p class="text-white fw-semibold mb-1">1. Konfigurasi Database</p>
+                            <p class="text-secondary">
+                                Langkah pertama adalah <code>membuat database di phpMyAdmin</code>, kemudian
+                                mengonfigurasi file
+                                <code>.env</code> pada root project Laravel agar terhubung ke database yang sudah
+                                dibuat.
                             </p>
-
-                            <p class="text-secondary">- Composer berfungsi sebagai pengelola dependensi PHP. Tanpa ini,
-                                kita tidak bisa menginstal Laravel Installer maupun library tambahan nantinya.<br>
-                                <img src="img/composer.png" alt="Composer" class="img-fluid rounded mt-2 mb-3">
+                            <p class="text-secondary">
+                                Buka file <code>.env</code> lalu sesuaikan konfigurasi database berikut:
                             </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=praktikum_laravel
+DB_USERNAME=root
+DB_PASSWORD=</code></pre>
+                            <!-- <p class="text-secondary mb-1">
+                                Buat database baru bernama <code>praktikum_laravel</code> di phpMyAdmin<br>
+                                <img src="img/p7_db_config.png" alt="Konfigurasi .env Database"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p> -->
+                            <br>
 
-                            <p class="text-secondary">- Git berfungsi sebagai version control dan integrasi ke
-                                github.<br>
-                                <img src="img/git.png" alt="Git" class="img-fluid rounded mt-2 mb-3">
+                            <!-- LANGKAH 2: Migration -->
+                            <p class="text-white fw-semibold mb-1">2. Membuat Migration Tabel Product</p>
+                            <p class="text-secondary">
+                                Jalankan perintah artisan berikut di terminal untuk membuat file migration:
                             </p>
-
-                            <p class="text-secondary">- Node.js berfungsi sebagai runtime environment untuk menjalankan
-                                aplikasi JavaScript di sisi server.<br>
-                                <img src="img/node.png" alt="Node JS" class="img-fluid rounded mt-2 mb-3">
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:migration create_products_table</code></pre>
+                            <p class="text-secondary">
+                                File migration akan tersimpan di folder
+                                <code>database/migrations</code>.<br>
+                                <img src="img/prak7-migration.png" alt="Lokasi file migration yang baru dibuat"
+                                    class="img-fluid rounded mt-2 mb-3">
                             </p>
-
-                            <p class="text-secondary">- NPM (Node Package Manager) berfungsi mengelola library
-                                JavaScript dan CSS.<br>
-                                <img src="img/npm.png" alt="NPM" class="img-fluid rounded mt-2 mb-3">
+                            <p class="text-secondary">
+                                Buka file migration yang baru dibuat di
+                                <code>database/migrations/2026.....php</code>,
+                                kemudian tulis isi method <code>up()</code> menjadi seperti berikut:
                             </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
 
-                            <p class="text-secondary">- XAMPP untuk membuat database localhost dan menjalankan PHP.<br>
-                                <img src="img/xampp.png" alt="XAMPP" class="img-fluid rounded mt-2 mb-4">
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('price');
+            $table->text('description');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('products');
+    }
+};
+</code></pre>
+                            <p class="text-secondary">
+                                Selanjutnya jalankan migration dengan perintah:
                             </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan migrate</code></pre>
+                            <p class="text-secondary mb-1">
+                                Jika berhasil, tabel <code>products</code> akan muncul di database.<br>
+                                <img src="img/prak7-table.png" alt="Hasil php artisan migrate"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <p class="text-secondary">
+                                *Note perintah : <br><code>php artisan migrate:rollback</code> untuk membatalkan
+                                migration dan <code>php artisan migrate:fresh</code> untuk menghapus semua tabel dan
+                                menjalankan ulang
+                            </p>
+                            <br>
 
-                            <p class="text-white mb-2">2. Instalasi Laravel Installer Global</p>
-                            <p class="text-secondary">- Dengan menginstal installer secara global, kita bisa membuat
-                                project baru hanya dengan perintah <code>laravel new</code>, tanpa perlu mengetik
-                                perintah Composer yang panjang setiap saat.</p>
-                            <p class="text-secondary"> Download installer Laravel menggunakan composer.<br>Command :
-                                <code>composer global require laravel/installer</code><br>
-                                <img src="img/composerInstaler.png" alt="Composer Installer"
+                            <!-- LANGKAH 3: Seeding -->
+                            <p class="text-white fw-semibold mb-1">3. Membuat Seeder Data Dummy Product</p>
+                            <p class="text-secondary">Seeding digunakan untuk mengisi data awal ke database, berfungsi
+                                untuk mengisi tabel dengan data dummy. Jalankan perintah berikut:</p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:seeder ProductSeeder</code></pre>
+                            <p class="text-secondary mb-1">
+                                Jika berhasil, file <code>seeder</code> akan otomatis terbuat di database/seeder.<br>
+                                <img src="img/prak7-seeder.png" alt="Hasil php artisan migrate"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <p class="text-secondary">
+                                Buka file tersebut di <code>database/seeders/ProductSeeder.php</code>
+                                dan tulis kode berikut untuk menambahkan data dummy ke dalam database.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class ProductSeeder extends Seeder
+{
+    public function run(): void
+    {
+        DB::table('products')->insert([
+            [
+                'name' => 'Laptop',
+                'price' => 7000000,
+                'description' => 'Laptop untuk Pemrograman',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'Mouse',
+                'price' => 150000,
+                'description' => 'Mouse wireless',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+    }
+}</code></pre>
+                            <p class="text-secondary">
+                                Daftarkan seeder pada <code>database/seeders/DatabaseSeeder.php</code>:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>$this-&gt;call(ProductSeeder::class);</code></pre>
+                            <p class="text-secondary">
+                                Jalankan seeder dengan perintah:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan db:seed</code></pre>
+                            <p class="text-secondary mb-1">
+                                *Note : atau jalankan migration dan seeding sekaligus:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan migrate:fresh --seed</code></pre>
+                            <p class="text-secondary mb-1">
+                                Data dummy berhasil ditambahkan ke tabel <code>products</code>.<br>
+                                <img src="img/prak7-product.png" alt="Hasil php artisan db:seed"
                                     class="img-fluid rounded mt-2 mb-4">
                             </p>
 
-                            <p class="text-white mb-2">3. Membuat project laravel</p>
-                            <p class="text-secondary">Ada beberapa cara membuat project laravel.<br>
-                                - Cara 1 : Menggunakan Laravel Installer dengan perintah :
-                                <code>laravel new nama_project</code><br>
-                                - Cara 2 : Menggunakan Composer dengan perintah :
-                                <code>composer create-project laravel/laravel=^versi nama_project --prefer-dist</code><br>
-                                <img src="img/laravel.png" alt="Create Laravel" class="img-fluid rounded mt-2 mb-3">
-                            </p>
-
-                            <p class="text-white mb-2">*Note : Database</p>
-                            <p class="text-secondary mb-4">Pastikan database sudah dibuat, baik secara otomatis saat
-                                awal pembuatan project atau dibuat manual. Jika dibuat manual maka command :
-                                <code>php artisan migrate</code>.
-                            </p>
-
-                            <p class="text-white mb-2">4. Project Framework Laravel</p>
-                            <p class="text-secondary">Berhasil membuat project framework Laravel. Masuk ke routes >
-                                web.php lalu buat "Hello Word"<br>
-                                <img src="img/project.png" alt="Hello World Code" class="img-fluid rounded mt-2 mb-4">
-                            </p>
-
-                            <p class="text-white mb-2">5. Menjalankan website project</p>
-                            <p class="text-secondary">Untuk menampilkan laman website dari project laravel, command :
-                                <code>php artisan serve</code>, lalu tekan url untuk start server.<br>
-                                <img src="img/serve.png" alt="Artisan Serve" class="img-fluid rounded mt-2 mb-4">
-                            </p>
-
-                            <p class="text-white mb-2">6. Berhasil Menampilkan Halaman Website Project Laravel</p>
+                            <!-- LANGKAH 4: Model -->
+                            <p class="text-white fw-semibold mb-1">4. Konfigurasi Model</p>
                             <p class="text-secondary">
-                                <img src="img/show.png" alt="Website Result" class="img-fluid rounded mt-2 mb-2">
+                                Model digunakan untuk berinteraksi dengan database. Laravel menggunakan Eloquent ORM
+                                untuk mempermudah manipulasi data.
+                                Buat file <code>app/Models/Product.php</code>, lalu
+                                definisikan kolom yang boleh diisi massal melalui properti <code>$fillable</code>:
                             </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'price',
+        'description'
+    ];
+}</code></pre>
+                            <p class="text-secondary mb-4">
+                                Properti <code>$fillable</code> berfungsi untuk melindungi dari <em>mass assignment
+                                    vulnerability</em>,
+                                yaitu mencegah kolom-kolom yang tidak diinginkan diisi secara bebas.
+                                <!-- <img src="img/p7_model.png" alt="File Model Mahasiswa"
+                                    class="img-fluid rounded mt-2 mb-2"> -->
+                            </p>
+
+                            <!-- LANGKAH 5: Controller -->
+                            <p class="text-white fw-semibold mb-1">5. Membuat Resource Controller</p>
+                            <p class="text-secondary">
+                                Controller digunakan untuk mengatur logika aplikasi, penghubung
+                                antara: Model (Database) - View (Halaman) - Request User. <br>
+                                Buat file controller menggunakan perintah berikut di terminal:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:controller ProductController</code></pre>
+                            <p class="text-secondary">
+                                Buka file di <code>app/Http/Controllers/ProductController.php</code> dan isi dengan
+                                logika CRUD berikut:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Product;
+use App\Http\Controllers\Controller;
+
+class ProductController extends Controller
+{
+    public function index()
+    {
+        $products = Product::all();
+
+        return view('products', compact('products'));
+    }
+}</code></pre>
+                            <!-- <p class="text-secondary mb-1">
+                                <img src="img/p7_controller.png" alt="File ProductController"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p> -->
+                            <p class="text-secondary">
+                                Resource controller :
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:controller ProductController --resource</code></pre>
+                            <p class="text-secondary">
+                                Resource Route :
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>Route::resource('products', ProductController::class);</code></pre>
+
+                            <!-- LANGKAH 6: Routing -->
+                            <p class="text-white fw-semibold mb-1">6. Menambahkan Route Resource</p>
+                            <p class="text-secondary">
+                                Buka file <code>routes/web.php</code> dan tambahkan resource route untuk products:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+
+Route::get('/', function () {
+    return redirect()-&gt;route('web.index');
+});
+
+Route::resource('products', ProductController::class);</code></pre>
+                            <p class="text-secondary">
+                                Satu baris <code>Route::resource</code> secara otomatis mendaftarkan 7 route sekaligus.
+                                Verifikasi route yang terdaftar menggunakan perintah:
+                            </p>
+                            <!-- <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan route:list</code></pre>
+                            <p class="text-secondary mb-1">
+                                <img src="img/p7_routelist.png" alt="Hasil php artisan route:list"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p> -->
+
+                            <!-- LANGKAH 12: Uji Coba -->
+                            <p class="text-white fw-semibold mb-1">7. Menjalankan dan Melihat tampilan halaman</p>
+                            <p class="text-secondary">
+                                Jalankan server Laravel dengan perintah:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan serve</code></pre>
+                            <p class="text-secondary">
+                                Buka browser dan akses <code>http://127.0.0.1:8000/products</code>.
+                            </p>
+                            <p class="text-secondary mb-1">
+                                <img src="img/prak7-output.png" alt="" class="img-fluid rounded mt-2 mb-2">
+                            </p>
+
                         </div>
                     </div>
-                    <!-- Section Langkah kerja praktikum -->
 
+                    <!-- ==================== KESIMPULAN ==================== -->
                     <div class="card contact-info-card mb-5">
                         <div class="card-body">
-                            <h4 class="fw-bold text-white mb-3">Kesimpulan</h4>
-                            <p class="text-secondary">Praktikum berhasil menunjukkan alur dasar bekerja dengan framework
-                                Laravel. Dengan instalasi dan konfigurasi yang benar, aplikasi Laravel dapat berjalan
-                                dengan lancar dan siap dikembangkan lebih lanjut menjadi website dinamis.</p>
+                            <h4 class="fw-bold text-white mb-3">
+                                </>Kesimpulan</h4>
+                            <p class="text-secondary">
+                                Melalui Praktikum 7 kita berhasil mempelajari beberapa hal
+                                penting dalam pengembangan aplikasi web menggunakan Laravel, terutama dalam memahami
+                                alur kerja:
+                            </p>
+                            <ul class="text-secondary">
+                                <li><strong>Migration</strong> memudahkan pengelolaan skema database dengan kode PHP
+                                    yang bisa diversion-control dan di-rollback kapan saja.</li>
+                                <li><strong>Seeder</strong> mempercepat proses pengujian dengan mengisi data dummy
+                                    secara otomatis tanpa perlu input manual.</li>
+                                <li><strong>Resource Route</strong> dengan satu baris kode mendaftarkan 7 endpoint
+                                    CRUD sekaligus, menjaga file routing tetap bersih.</li>
+                                <li><strong>Eloquent ORM</strong> menyederhanakan interaksi database — operasi
+                                    insert, update, dan delete bisa dilakukan tanpa SQL mentah.</li>
+                                <li><strong>Blade Template</strong> dengan konsep layout/extend sangat efisien karena
+                                    bagian seperti navbar dan footer tidak perlu ditulis ulang di setiap halaman.</li>
+                                <li><strong>Validasi bawaan Laravel</strong> pada controller membantu menjaga
+                                    integritas data sebelum disimpan ke database.</li>
+                            </ul>
+                            <p class="text-secondary mb-0">
+                                Dengan memahami alur MVC secara menyeluruh, pengembangan aplikasi web menjadi lebih
+                                terstruktur, mudah dipelihara, dan siap dikembangkan ke fitur yang lebih kompleks
+                                seperti autentikasi, API, dan middleware.
+                            </p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section>
     <!-- Akhir Konten Laporan -->
 
-    <!-- Footer  -->
+    <!-- Footer -->
     <footer class="footer-custom">
         <div class="container">
             <div class="row flex justify-content-end mb-4">
                 <div class="col-md-4">
                     <h5 class="footer-title">About Website</h5>
                     <p>
-                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (deril) dan daftar
+                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (Deriel) dan daftar
                         project yang pernah dikerjakan.
                     </p>
                 </div>
