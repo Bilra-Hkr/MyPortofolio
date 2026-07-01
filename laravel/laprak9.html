@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laporan Praktikum 9 - Deriel Chaerahman</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Deriel C.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Header Laporan -->
+    <section class="py-4 mt-5">
+        <div class="container py-4">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-secondary">Home
+                            /</a></li>
+                    <li class="breadcrumb-item"><a href="../blog.html" class="text-decoration-none text-secondary">Blog
+                            /</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Laporan Praktikum</li>
+                </ol>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-5 fw-bold text-gradient mb-3">Laporan Praktikum 9</h1>
+                    <p class="text-white fs-5">Studi Kasus Sistem Informasi Sekolah (SISFO)</p>
+                    <p class="text-secondary fs-7">Dibuat : 20 Juni 2026</p>
+                    <a href="https://github.com/Bilra-Hkr/PraktikumPweb9" target="_blank"
+                        class="btn btn-outline-light rounded-pill px-4 py-2">
+                        <i class="bi bi-github me-2"></i> Repository GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Header Laporan -->
+
+    <!-- Konten Laporan -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <!-- ==================== TUJUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Tujuan Praktikum</h4>
+                            <p class="text-secondary">
+                                Memahami dan mampu membangun aplikasi web berbasis framework <strong>Laravel 9</strong>
+                                dengan studi kasus <strong>Sistem Informasi Sekolah (SISFO)</strong>.
+                            </p>
+                            <ul class="text-secondary">
+                                <li>Membuat project Laravel baru dan melakukan konfigurasi database.</li>
+                                <li>Implementasi fitur <strong>User Authentication</strong> menggunakan package
+                                    <code>laravel/ui</code>.
+                                </li>
+                                <li>Melakukan kustomisasi tabel <code>users</code> dengan menambahkan kolom
+                                    <code>username</code>, <code>level</code>, dan <code>status</code>.
+                                </li>
+                                <li>Mengintegrasikan template <strong>SB Admin 2</strong> sebagai layout utama aplikasi.
+                                </li>
+                                <li>Membuat fitur <strong>Manajemen Users</strong> dengan operasi <strong>CRUD</strong>
+                                    lengkap.</li>
+                                <li>Menerapkan konsep <strong>layout inheritance</strong> Blade Template Engine
+                                    (<code>@extends</code>, <code>@section</code>, <code>@yield</code>,
+                                    <code>@include</code>).
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANDASAN TEORI ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-book me-2"></i>Landasan Teori</h4>
+                            <p class="text-secondary">
+                                Praktikum ini memanfaatkan berbagai fitur bawaan Laravel 9 dan package pendukung
+                                untuk membangun sistem informasi sekolah secara terstruktur.
+                            </p>
+
+                            <div class="accordion accordion-flush custom-accordion" id="accordionTeori">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-auth"
+                                            aria-expanded="false">
+                                            Laravel Authentication (laravel/ui)
+                                        </button>
+                                    </h2>
+                                    <div id="teori-auth" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Package <code>laravel/ui</code> menyediakan scaffolding autentikasi secara
+                                            otomatis,
+                                            meliputi controller, view (login, register, forgot password), dan route
+                                            autentikasi.
+                                            Perintah <code>php artisan ui bootstrap --auth</code> akan men-generate
+                                            semua komponen
+                                            tersebut beserta integrasi Bootstrap sebagai framework CSS-nya.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-migration"
+                                            aria-expanded="false">
+                                            Kustomisasi Tabel Users (Migration)
+                                        </button>
+                                    </h2>
+                                    <div id="teori-migration" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Laravel Authentication secara default menghasilkan tabel <code>users</code>
+                                            dengan kolom
+                                            standar (id, name, email, password, dll). Untuk kebutuhan aplikasi SISFO,
+                                            tabel tersebut
+                                            perlu dikustomisasi dengan menambahkan kolom <code>username</code> (unique),
+                                            <code>level</code> (format JSON untuk multi-role), dan <code>status</code>
+                                            (enum: ACTIVE/INACTIVE) melalui file migration tambahan.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-blade"
+                                            aria-expanded="false">
+                                            Blade Layout Inheritance
+                                        </button>
+                                    </h2>
+                                    <div id="teori-blade" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Laravel menyediakan mekanisme layout inheritance melalui Blade. Layout utama
+                                            (<code>main.blade.php</code>) mendefinisikan struktur halaman dengan
+                                            <code>@yield('slot')</code> sebagai placeholder. View turunan menggunakan
+                                            <code>@extends('layouts.main')</code> dan mengisi placeholder melalui
+                                            <code>@section('slot')...@endsection</code>. Komponen partial seperti
+                                            sidebar dan topbar di-include menggunakan
+                                            <code>@include('layouts.nama')</code>.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-sbadmin"
+                                            aria-expanded="false">
+                                            SB Admin 2 Template
+                                        </button>
+                                    </h2>
+                                    <div id="teori-sbadmin" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            SB Admin 2 adalah template admin gratis berbasis Bootstrap 4 yang tersedia
+                                            di
+                                            <code>startbootstrap.com/theme/sb-admin-2</code>. Template ini menyediakan
+                                            komponen
+                                            seperti sidebar, topbar, DataTables, dan berbagai widget dashboard. Asset
+                                            template
+                                            ditempatkan di folder <code>public/sbadmin</code> dan dipanggil melalui
+                                            helper
+                                            <code>asset()</code> pada Blade.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-resource"
+                                            aria-expanded="false">
+                                            Resource Controller &amp; CRUD
+                                        </button>
+                                    </h2>
+                                    <div id="teori-resource" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Resource Controller yang dibuat dengan flag <code>--resource</code> secara
+                                            otomatis
+                                            menyediakan 7 method standar: <code>index</code>, <code>create</code>,
+                                            <code>store</code>, <code>show</code>, <code>edit</code>,
+                                            <code>update</code>,
+                                            dan <code>destroy</code>. Dikombinasikan dengan
+                                            <code>Route::resource()</code>,
+                                            satu baris route sudah mendaftarkan semua endpoint CRUD sekaligus.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== ALAT DAN BAHAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-tools me-2"></i>Alat dan Bahan</h4>
+                            <ul class="text-secondary mb-0">
+                                <li>Laptop / Komputer</li>
+                                <li>XAMPP (Apache + MySQL)</li>
+                                <li>Visual Studio Code</li>
+                                <li>Composer, Git, Node.js, NPM</li>
+                                <li>Template SB Admin 2 (<code>startbootstrap.com/theme/sb-admin-2</code>)</li>
+                                <li>Browser (Google Chrome / Firefox)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANGKAH PENGERJAAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-4"><i class="bi bi-list-ol me-2"></i>Langkah Pengerjaan
+                            </h4>
+
+                            <!-- LANGKAH 1 -->
+                            <p class="text-white fw-semibold mb-1">1. Membuat Project Laravel dengan Nama Laravel-sisfo
+                            </p>
+                            <p class="text-secondary">
+                                Pertama, buat folder baru bernama "Laravel" pada direktori sistem Anda. Navigasi ke
+                                folder tersebut
+                                menggunakan terminal dan jalankan perintah di bawah ini untuk membuat project Laravel
+                                baru:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>composer create-project laravel/laravel=^12.0 laravel-sisfo --prefer-dist</code></pre>
+                            <p class="text-secondary">
+                                Setelah project selesai dibuat, jalankan perintah berikut untuk memulai development
+                                server lokal:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan serve</code></pre>
+                            <p class="text-secondary mb-1">
+                                Buka browser dan akses <code>http://127.0.0.1:8000</code> untuk memastikan project telah
+                                dibuat dengan sukses. Anda akan melihat halaman welcome default Laravel.
+                                <img src="img/laprak9-1.png" alt="Tampilan Welcome Laravel"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 2 -->
+                            <p class="text-white fw-semibold mb-1">2. Konfigurasi Database</p>
+                            <p class="text-secondary">
+                                Buat database baru di PHPMyAdmin dengan nama <code>laravel_sisfo</code>. Kemudian, buka
+                                file <code>.env</code>
+                                pada root project dan sesuaikan konfigurasi database berikut:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_sisfo
+DB_USERNAME=root
+DB_PASSWORD=</code></pre>
+                            <p class="text-secondary mb-1">
+                                Pastikan pengaturan di atas sesuai dengan konfigurasi MySQL.
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 3 -->
+                            <p class="text-white fw-semibold mb-1">3. User Authentication</p>
+                            <p class="text-secondary">Mulai dengan menginstal package Laravel UI menggunakan Composer:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>composer require laravel/ui</code></pre>
+                            <p class="text-secondary">Setelah instalasi selesai, generate scaffolding autentikasi dengan
+                                Bootstrap:</p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan ui bootstrap --auth</code></pre>
+                            <p class="text-secondary">Install dan compile semua asset frontend yang diperlukan:</p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>npm install &amp;&amp; npm run dev</code></pre>
+                            <p class="text-secondary">Jalankan migrasi database untuk membuat tabel-tabel yang
+                                diperlukan autentikasi:</p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan migrate</code></pre>
+                            <p class="text-secondary mb-1">
+                                Verifikasi instalasi dengan mengakses halaman login di
+                                <code>http://127.0.0.1:8000/login</code> dan halaman register di
+                                <code>http://127.0.0.1:8000/register</code>.
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 4 -->
+                            <p class="text-white fw-semibold mb-1">4. Kustomisasi Tabel Users</p>
+                            <p class="text-secondary">
+                                Tabel <code>users</code> bawaan Laravel perlu diperluas dengan kolom tambahan untuk
+                                kebutuhan SISFO. Buat file migration baru:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:migration costum_table_users</code></pre>
+                            <p class="text-secondary">
+                                Buka file yang telah dibuat di
+                                <code>database/migrations/..._costum_table_users.php</code> dan isikan kode berikut:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table-&gt;string("username")-&gt;unique();
+            $table-&gt;string("level");
+            $table-&gt;enum("status", ["ACTIVE", "INACTIVE"]);
+        });
+    }
+
+    public function down()
+    {
+        Schema::table('users', function (Blueprint $table) {
+            $table-&gt;dropColumn("username");
+            $table-&gt;dropColumn("level");
+            $table-&gt;dropColumn("status");
+        });
+    }
+};</code></pre>
+                            <p class="text-secondary">Jalankan migrasi untuk menerapkan perubahan pada database:</p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan migrate</code></pre>
+                            <p class="text-secondary mb-1">
+                                Tabel <code>users</code> kini memiliki kolom baru yaitu <code>username</code>,
+                                <code>level</code>, dan <code>status</code>.
+                                <img src="img/laprak9-3.png" alt="Struktur Tabel Users Setelah Custom"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 5 -->
+                            <p class="text-white fw-semibold mb-1">5. Seeding User Admin</p>
+                            <p class="text-secondary">Buat seeder untuk inisialiasasi (data dummy) user admin pertama
+                                kali:</p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:seeder AdminSeeder</code></pre>
+                            <p class="text-secondary">
+                                Buka file <code>database/seeders/AdminSeeder.php</code> dan isikan kode berikut untuk
+                                membuat user admin:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class AdminSeeder extends Seeder
+{
+    public function run()
+    {
+        $admin = new \App\Models\User;
+        $admin-&gt;username = "admin";
+        $admin-&gt;name     = "Admin Aplikasi";
+        $admin-&gt;email    = "admin@sisfo.com";
+        $admin-&gt;level    = json_encode(["ADMIN"]);
+        $admin-&gt;status   = "ACTIVE";
+        $admin-&gt;password = \Hash::make("12345678");
+        $admin-&gt;save();
+
+        $this-&gt;command-&gt;info("User Admin berhasil ditambahkan");
+    }
+}</code></pre>
+                            <p class="text-secondary">Jalankan seeder dengan perintah berikut:</p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan db:seed --class=AdminSeeder</code></pre>
+                            <br>
+
+                            <!-- LANGKAH 6 -->
+                            <p class="text-white fw-semibold mb-1">6. Integrasi Template SB Admin 2</p>
+                            <p class="text-secondary">
+                                Download template SB Admin 2 dari <code>startbootstrap.com/theme/sb-admin-2</code>,
+                                kemudian ekstrak dan salin seluruh file ke folder <code>public/sbadmin</code> pada
+                                project Laravel Anda.
+                            </p>
+                            <p class="text-secondary">
+                                Buka file <code>resources/views/layouts/app.blade.php</code> dan ganti seluruh isinya
+                                dengan kode berikut untuk mengubah tampilan halaman login dengan styling SB Admin 2:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+    &lt;meta name="description" content=""&gt;
+    &lt;meta name="author" content=""&gt;
+
+    &lt;title&gt;Sisfo - Login&lt;/title&gt;
+
+    &lt;link href="{{ asset('sbadmin/vendor/fontawesomefree/css/all.min.css') }}" rel="stylesheet" type="text/css"&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"&gt;
+
+    &lt;link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet"&gt;
+&lt;/head&gt;
+
+    &lt;body class="bg-gradient-primary"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="row justify-content-center"&gt;
+            &lt;div class="col-xl-6 col-lg-6 col-md-9"&gt;
+                &lt;div class="card o-hidden border-0 shadow-lg my-5"&gt;
+                    &lt;div class="card-body p-0"&gt;
+                        &lt;div class="row"&gt;
+                            &lt;div class="col-lg-12 text-center"&gt;
+                                &lt;div class="p-5"&gt;
+                                    &lt;div class="text-center"&gt;
+                                        &lt;h1 class="h4 text-gray-900 mb-4"&gt;Halaman Login&lt;/h1&gt;
+                                    &lt;/div&gt;
+
+    &lt;form class="user" method="POST" action="{{ route('login') }}"&gt;
+                                        @csrf
+
+    &lt;div class="form-group"&gt;
+                                            &lt;input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus /&gt;
+
+    @error('email')
+                                                &lt;span class="invalid-feedback" role="alert"&gt;
+                                                    &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                                &lt;/span&gt;
+                                            @enderror
+                                        &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+                                            &lt;input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required /&gt;
+
+    @error('password')
+                                                &lt;span class="invalid-feedback" role="alert"&gt;
+                                                    &lt;strong&gt;{{ $message }}&lt;/strong&gt;
+                                                &lt;/span&gt;
+                                            @enderror
+                                        &lt;/div&gt;
+
+    &lt;button type="submit" class="btn btn-primary btn-user btn-block"&gt;
+                                            Login
+                                        &lt;/button&gt;
+                                    &lt;/form&gt;
+
+    &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="{{ asset('sbadmin/vendor/jquery/jquery.min.js') }}"&gt;&lt;/script&gt;
+    &lt;script src="{{ asset('sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"&gt;&lt;/script&gt;
+
+    &lt;script src="{{ asset('sbadmin/vendor/jqueryeasing/jquery.easing.min.js') }}"&gt;&lt;/script&gt;
+
+    &lt;script src="{{ asset('sbadmin/js/sb-admin-2.min.js') }}"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            <p class="text-secondary mb-1">
+                                Verifikasi perubahan dengan mengakses <code>http://127.0.0.1:8000/login</code> di
+                                browser.
+                                <img src="img/laprak9-2.png" alt="Halaman Login SB Admin 2"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 7 -->
+                            <p class="text-white fw-semibold mb-1">7. Membuat Layout Utama (main.blade.php)</p>
+                            <p class="text-secondary">
+                                Buat file <code>resources/views/layouts/main.blade.php</code> sebagai layout induk untuk
+                                semua halaman aplikasi. File ini akan mencakup struktur dasar dengan sidebar, topbar,
+                                dan area konten:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+    &lt;meta name="description" content=""&gt;
+    &lt;meta name="author" content=""&gt;
+
+    &lt;title&gt;Sisfo - @yield('judul')&lt;/title&gt;
+
+    &lt;link href="{{ asset('sbadmin/vendor/fontawesomefree/css/all.min.css') }}" rel="stylesheet" type="text/css"&gt;
+    &lt;link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"&gt;
+    &lt;link href="{{ asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"&gt;
+    &lt;link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet"&gt;
+&lt;/head&gt;
+
+    &lt;body id="page-top"&gt;
+
+    &lt;div id="wrapper"&gt;
+
+    @include('layouts.sidebar')
+        &lt;div id="content-wrapper" class="d-flex flex-column"&gt;
+
+    &lt;div id="content"&gt;
+
+    @include('layouts.topbar')
+                &lt;div class="container-fluid"&gt;
+                    &lt;h1 class="h3 mb-4 text-gray-800"&gt;@yield('judul')&lt;/h1&gt;
+
+    @yield('konten')
+                &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;footer class="sticky-footer bg-white"&gt;
+                &lt;div class="container my-auto"&gt;
+                    &lt;div class="copyright text-center my-auto"&gt;
+                        &lt;span&gt;Copyright &amp;copy; Sisfo&lt;/span&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/footer&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;a class="scroll-to-top rounded" href="#page-top"&gt;
+        &lt;i class="fas fa-angle-up"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+
+    &lt;div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"&gt;
+        &lt;div class="modal-dialog" role="document"&gt;
+            &lt;div class="modal-content"&gt;
+                &lt;div class="modal-header"&gt;
+                    &lt;h5 class="modal-title" id="exampleModalLabel"&gt;Yakin akan keluar aplikasi?&lt;/h5&gt;
+                    &lt;button class="close" type="button" data-dismiss="modal" aria-label="Close"&gt;
+                        &lt;span aria-hidden="true"&gt;×&lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="modal-body"&gt;Silahkan klik tombol logout untuk keluar aplikasi.&lt;/div&gt;
+                &lt;div class="modal-footer"&gt;
+                    &lt;button class="btn btn-secondary" type="button" data-dismiss="modal"&gt;Cancel&lt;/button&gt;
+                    &lt;form action="{{ route('logout') }}" method="POST"&gt;
+                        @csrf
+                        &lt;button class="btn btn-primary" style="cursor:pointer"&gt;Logout&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="{{ asset('sbadmin/vendor/jquery/jquery.min.js') }}"&gt;&lt;/script&gt;
+    &lt;script src="{{ asset('sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"&gt;&lt;/script&gt;
+    &lt;script src="{{ asset('sbadmin/vendor/jqueryeasing/jquery.easing.min.js') }}"&gt;&lt;/script&gt;
+    &lt;script src="{{ asset('sbadmin/vendor/datatables/jquery.dataTables.min.js') }}"&gt;&lt;/script&gt;
+    &lt;script src="{{ asset('sbadmin/vendor/datatables/dataTables.bootstrap4.min.js') }}"&gt;&lt;/script&gt;
+    &lt;script src="{{ asset('sbadmin/js/demo/datatables-demo.js') }}"&gt;&lt;/script&gt;
+    &lt;script src="{{ asset('sbadmin/js/sb-admin-2.min.js') }}"&gt;&lt;/script&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            <p class="text-secondary">
+                                Buat file <code>resources/views/layouts/sidebar.blade.php</code> untuk komponen sidebar:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"&gt;
+
+    &lt;!-- Sidebar - Brand --&gt;
+    &lt;a class="sidebar-brand d-flex align-items-center justify-content-center" href="#"&gt;
+        &lt;div class="sidebar-brand-icon rotate-n-15"&gt;
+            &lt;i class="fas fa-laugh-wink"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+        &lt;div class="sidebar-brand-text mx-3"&gt;Sisfo&lt;/div&gt;
+    &lt;/a&gt;
+
+    &lt;!-- Divider --&gt;
+    &lt;hr class="sidebar-divider my-0"&gt;
+
+    &lt;!-- Nav Item - Dashboard --&gt;
+    &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="{{ route('home') }}"&gt;
+            &lt;i class="fas fa-fw fa-tachometer-alt"&gt;&lt;/i&gt;
+            &lt;span&gt;Dashboard&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+
+    &lt;!-- Nav Item - Users --&gt;
+    &lt;li class="nav-item"&gt;
+        &lt;a class="nav-link" href="{{ route('users.index') }}"&gt;
+            &lt;i class="fas fa-fw fa-users"&gt;&lt;/i&gt;
+            &lt;span&gt;Users&lt;/span&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+
+    &lt;!-- Divider --&gt;
+    &lt;hr class="sidebar-divider d-none d-md-block"&gt;
+
+    &lt;!-- Sidebar Toggler (Sidebar) --&gt;
+    &lt;div class="text-center d-none d-md-inline"&gt;
+        &lt;button class="rounded-circle border-0" id="sidebarToggle"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;/ul&gt;</code></pre>
+                            <p class="text-secondary">
+                                Buat file <code>resources/views/layouts/topbar.blade.php</code> untuk komponen topbar:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"&gt;
+
+    &lt;button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3"&gt;
+        &lt;i class="fa fa-bars"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+
+    &lt;ul class="navbar-nav ml-auto"&gt;
+
+    &lt;div class="topbar-divider d-none d-sm-block"&gt;&lt;/div&gt;
+
+    &lt;li class="nav-item dropdown no-arrow"&gt;
+
+    @if (\Auth::user())
+                &lt;a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                    &lt;span class="mr-2 d-none d-lg-inline text-gray-600 small"&gt;{{ Auth::user()-&gt;name }}&lt;/span&gt;
+                    &lt;img class="img-profile rounded-circle" src="{{ asset('sbadmin/img/undraw_profile.svg') }}"&gt;
+                &lt;/a&gt;
+            @endif
+
+    &lt;div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown"&gt;
+                &lt;a class="dropdown-item" href="#"&gt;
+                    &lt;i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"&gt;&lt;/i&gt;
+                    Profile
+                &lt;/a&gt;
+                &lt;a class="dropdown-item" href="#"&gt;
+                    &lt;i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"&gt;&lt;/i&gt;
+                    Settings
+                &lt;/a&gt;
+                &lt;div class="dropdown-divider"&gt;&lt;/div&gt;
+                &lt;a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"&gt;
+                    &lt;i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"&gt;&lt;/i&gt;
+                    Logout
+                &lt;/a&gt;
+            &lt;/div&gt;
+
+    &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;/nav&gt;</code></pre>
+                            <p class="text-secondary mb-1">
+                                Verifikasi perubahan dengan mengakses <code>http://127.0.0.1:8000/home</code>.
+                                <img src="img/laprak9-dashboard.png" alt="Tampilan Layout Utama SB Admin"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 8 -->
+                            <p class="text-white fw-semibold mb-1">8. Manajemen Users — Resource Controller</p>
+                            <p class="text-secondary">Buat Resource Controller untuk mengelola operasi CRUD pengguna:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:controller UserController --resource</code></pre>
+                            <p class="text-secondary">Tambahkan route pada file <code>routes/web.php</code>:</p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>use App\Http\Controllers\UserController;
+
+Route::middleware(['auth'])-&gt;group(function () {
+    Route::resource('users', UserController::class);
+});</code></pre>
+                            <br>
+
+                            <!-- H1: READ -->
+                            <p class="text-white fw-semibold mb-1">8.1. Read — Menampilkan Daftar Users</p>
+                            <p class="text-secondary">Edit method <code>index</code> di <code>UserController.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>public function index()
+{
+    $users = \App\Models\User::all();
+    return view('users.index', compact('users'));
+}</code></pre>
+                            <p class="text-secondary">Buat folder <code>resources/views/users</code> dan file
+                                <code>index.blade.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>@extends('layouts.main')
+@section("judul") Users @endsection
+@section('konten')
+@if(session('status'))
+    &lt;div class="alert alert-success"&gt;{{ session('status') }}&lt;/div&gt;
+@endif
+&lt;p&gt;
+    &lt;a href="{{ route('users.create') }}" class="btn btn-primary btn-sm"&gt;Tambah User&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class="card shadow mb-4"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;div class="table-responsive"&gt;
+            &lt;table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/th&gt;
+                        &lt;th&gt;&lt;b&gt;Username&lt;/b&gt;&lt;/th&gt;
+                        &lt;th&gt;&lt;b&gt;Email&lt;/b&gt;&lt;/th&gt;
+                        &lt;th&gt;&lt;b&gt;Action&lt;/b&gt;&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                @foreach($users as $user)
+                    &lt;tr&gt;
+                        &lt;td&gt;{{ $user-&gt;name }}&lt;/td&gt;
+                        &lt;td&gt;{{ $user-&gt;username }}&lt;/td&gt;
+                        &lt;td&gt;{{ $user-&gt;email }}&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;a href="{{ route('users.edit', $user-&gt;id) }}" class="btn btn-sm btn-success"&gt;Edit&lt;/a&gt;
+                            &lt;form onsubmit="return confirm('Hapus data user ?')" class="d-inline"
+                                  action="{{ route('users.destroy', [$user-&gt;id]) }}" method="POST"&gt;
+                                @csrf
+                                @method('DELETE')
+                                &lt;input type="submit" value="Hapus" class="btn btn-danger btn-sm"&gt;
+                            &lt;/form&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                @endforeach
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection</code></pre>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak9-listUser.png" alt="Tampilan List Users"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- 8.2: CREATE -->
+                            <p class="text-white fw-semibold mb-1">8.2. Create — Menambah User Baru</p>
+                            <p class="text-secondary">Edit method <code>create</code> dan <code>store</code> di
+                                <code>UserController.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>public function create()
+{
+    return view('users.create');
+}
+
+public function store(Request $request)
+{
+    $user = new \App\Models\User;
+    $user-&gt;name     = $request-&gt;get('nama');
+    $user-&gt;username = $request-&gt;get('username');
+    $user-&gt;email    = $request-&gt;get('email');
+    $user-&gt;password = \Hash::make($request-&gt;get('password'));
+    $user-&gt;level    = json_encode($request-&gt;get('level'));
+    $user-&gt;status   = "ACTIVE";
+    $user-&gt;save();
+
+    return redirect()-&gt;route('users.index')-&gt;with('status', 'User baru berhasil ditambahkan');
+}</code></pre>
+                            <p class="text-secondary">Buat file <code>resources/views/users/create.blade.php</code>:</p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>@extends('layouts.main')
+@section("judul") Create User @endsection
+@section('konten')
+&lt;div class="card shadow mb-4"&gt;
+    &lt;div class="card-header py-3"&gt;&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-lg-9"&gt;
+                &lt;form method="POST" action="{{ route('users.store') }}"&gt;
+                    @csrf
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Nama&lt;/label&gt;
+                        &lt;div class="col-sm-9"&gt;
+                            &lt;input type="text" class="form-control" id="nama" name="nama"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Email&lt;/label&gt;
+                        &lt;div class="col-sm-9"&gt;
+                            &lt;input type="email" class="form-control" id="email" name="email"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Username&lt;/label&gt;
+                        &lt;div class="col-sm-9"&gt;
+                            &lt;input type="text" class="form-control" id="username" name="username"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Password&lt;/label&gt;
+                        &lt;div class="col-sm-4"&gt;
+                            &lt;input type="password" class="form-control" id="password" name="password"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Level&lt;/label&gt;
+                        &lt;div class="col-sm-4 mr-2"&gt;
+                            &lt;select class="form-control select2-multiple" name="level[]" multiple="multiple"&gt;
+                                &lt;option value="ADMIN"&gt;ADMIN&lt;/option&gt;
+                                &lt;option value="GURU"&gt;GURU&lt;/option&gt;
+                                &lt;option value="STAFF"&gt;STAFF&lt;/option&gt;
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;div class="col-sm-10 text-center"&gt;
+                            &lt;button type="reset" class="btn btn-warning btn-sm"&gt;Batal&lt;/button&gt;
+                            &lt;button type="submit" class="btn btn-primary btn-sm"&gt;Simpan&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection</code></pre>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak9-tambah.png" alt="Form Create User"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- 8.3: UPDATE -->
+                            <p class="text-white fw-semibold mb-1">8.3. Update — Mengubah Data User</p>
+                            <p class="text-secondary">Edit method <code>edit</code> dan <code>update</code> di
+                                <code>UserController.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>public function edit($id)
+{
+    $user = \App\Models\User::findOrFail($id);
+    return view('users.edit', ['user' =&gt; $user]);
+}
+
+public function update(Request $request, $id)
+{
+    $user = \App\Models\User::findOrFail($id);
+    $user-&gt;name  = $request-&gt;get('nama');
+    $user-&gt;email = $request-&gt;get('email');
+    $user-&gt;level = json_encode($request-&gt;get('level'));
+    $user-&gt;save();
+
+    return redirect()-&gt;route('users.index', [$id])-&gt;with('status', 'User berhasil diubah');
+}</code></pre>
+                            <p class="text-secondary">Buat file <code>resources/views/users/edit.blade.php</code>:</p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>@extends('layouts.main')
+@section("judul") Edit User @endsection
+@section('konten')
+&lt;div class="card shadow mb-4"&gt;
+    &lt;div class="card-header py-3"&gt;&lt;/div&gt;
+    &lt;div class="card-body"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-lg-9"&gt;
+                &lt;form method="POST" action="{{ route('users.update', [$user-&gt;id]) }}"&gt;
+                    @method('PUT')
+                    @csrf
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Nama&lt;/label&gt;
+                        &lt;div class="col-sm-9"&gt;
+                            &lt;input type="text" class="form-control" id="nama" name="nama"
+                                   value="{{ $user-&gt;name }}"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Email&lt;/label&gt;
+                        &lt;div class="col-sm-9"&gt;
+                            &lt;input type="email" class="form-control" id="email" name="email"
+                                   value="{{ $user-&gt;email }}"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Username&lt;/label&gt;
+                        &lt;div class="col-sm-9"&gt;
+                            &lt;input type="text" class="form-control" id="username" name="username"
+                                   value="{{ $user-&gt;username }}" readonly&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;label class="col-sm-3 col-form-label text-center"&gt;Level&lt;/label&gt;
+                        &lt;div class="col-sm-4 mr-2"&gt;
+                            &lt;select class="form-control select2-multiple" name="level[]" multiple="multiple"&gt;
+                                &lt;option value="ADMIN" {{in_array("ADMIN", json_decode($user-&gt;level)) ? "selected" : ""}}&gt;ADMIN&lt;/option&gt;
+                                &lt;option value="GURU"  {{in_array("GURU",  json_decode($user-&gt;level)) ? "selected" : ""}}&gt;GURU&lt;/option&gt;
+                                &lt;option value="STAFF" {{in_array("STAFF", json_decode($user-&gt;level)) ? "selected" : ""}}&gt;STAFF&lt;/option&gt;
+                            &lt;/select&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="form-group row"&gt;
+                        &lt;div class="col-sm-10 text-center"&gt;
+                            &lt;a href="{{ route('users.index') }}" class="btn btn-warning btn-sm"&gt;Batal&lt;/a&gt;
+                            &lt;button type="submit" class="btn btn-primary btn-sm"&gt;Simpan&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@endsection</code></pre>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak9-edit.png" alt="Form Edit User"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- 8.4: DELETE -->
+                            <p class="text-white fw-semibold mb-1">8.4. Delete — Menghapus User</p>
+                            <p class="text-secondary">Edit method <code>destroy</code> di
+                                <code>UserController.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>public function destroy($id)
+{
+    $user = \App\Models\User::findOrFail($id);
+    $user-&gt;delete();
+
+    return redirect()-&gt;route('users.index')-&gt;with('status', 'User berhasil dihapus');
+}</code></pre>
+                            <p class="text-secondary">
+                                Fitur penghapusan sudah terintegrasi pada halaman index melalui tombol hapus di kolom
+                                action.
+                                Sistem akan meminta konfirmasi sebelum data benar-benar dihapus dari database.
+                            </p>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak9-hapus.png" alt="Konfirmasi Hapus User"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 9 -->
+                            <p class="text-white fw-semibold mb-1">9. Menjalankan dan Menguji Aplikasi</p>
+                            <p class="text-secondary">Jalankan server development Laravel dengan perintah:</p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan serve</code></pre>
+                            <p class="text-secondary">
+                                Buka browser dan akses <code>http://127.0.0.1:8000</code>. Anda akan diarahkan ke
+                                halaman login.
+                                Masuk menggunakan kredensial admin yang telah dibuat sebelumnya
+                                (<code>admin@sisfo.com</code> dengan password <code>12345678</code>).
+                                Setelah login, navigasi ke menu Users dan lakukan pengujian terhadap semua fitur CRUD
+                                yang telah diimplementasikan.
+                            </p>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak9-final.png" alt="Tampilan Akhir Aplikasi SISFO"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- ==================== KESIMPULAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Kesimpulan</h4>
+                            <p class="text-secondary">
+                                Melalui praktikum ini, kita telah berhasil membangun sebuah aplikasi Sistem Informasi
+                                Sekolah (SISFO) berbasis Laravel 9
+                                dengan mengintegrasikan berbagai konsep fundamental dalam pengembangan web modern.
+                            </p>
+                            <ul class="text-secondary">
+                                <li><strong>Scaffolding otomatis</strong> melalui package Laravel UI memungkinkan
+                                    implementasi autentikasi dengan cepat,
+                                    menghasilkan controller, view, dan route secara otomatis tanpa perlu coding dari
+                                    nol.
+                                </li>
+                                <li><strong>Sistem migrasi dan seeding</strong> memberikan cara yang terstruktur untuk
+                                    mengelola perubahan skema database
+                                    serta pengisian data awal secara terprogram dengan aman.
+                                </li>
+                                <li><strong>Layout inheritance dengan Blade</strong> menghasilkan kode yang lebih
+                                    modular dan mudah dipelihara,
+                                    dengan struktur halaman yang konsisten di seluruh aplikasi.
+                                </li>
+                                <li><strong>Template SB Admin 2</strong> menghadirkan antarmuka profesional dengan
+                                    komponen-komponen siap pakai
+                                    yang dapat disesuaikan dengan kebutuhan aplikasi.
+                                </li>
+                                <li><strong>Resource Controller</strong> menyederhanakan implementasi operasi CRUD
+                                    dengan pemetaan otomatis antara
+                                    HTTP method dan method controller melalui routing yang elegan.
+                                </li>
+                                <li><strong>DataTables</strong> menghadirkan fitur pencarian dan paginasi yang
+                                    meningkatkan user experience
+                                    ketika menampilkan daftar data yang besar.
+                                </li>
+                            </ul>
+                            <p class="text-secondary mb-0">
+                                Fondasi aplikasi yang telah dibangun pada praktikum ini memberikan basis yang solid
+                                untuk pengembangan fitur tambahan
+                                seperti manajemen data siswa, guru, mata pelajaran, dan jadwal kelas di tahap-tahap
+                                berikutnya.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Konten Laporan -->
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row flex justify-content-end mb-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">About Website</h5>
+                    <p>
+                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (Deriel) dan daftar
+                        project yang pernah dikerjakan.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="../about.html" class="footer-link">About Me</a>
+                    <a href="../portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="../blog.html" class="footer-link">Blog</a>
+                    <a href="../contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">My Contact</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Padang, Indonesia</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> dariel@gmail.com</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/bilra_ch?igsh=em5pNzh0b2hoa3o3" class="social-icon"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://github.com/Bilra-Hkr" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+                            class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright-border">
+                <div class="text-md-center">
+                    <p class="mb-0">&copy;2025 Copyright : Deriel Chaerahman.</p>
+                    <p class="mb-0 small">Develop with Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-5x9p2MNl82nCPx+6sGr2nPv+4rgaQPc+e8plOFqLPlXkF2tWcseSVPyj9EWmFG+E"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
