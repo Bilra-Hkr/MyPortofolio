@@ -1,0 +1,1043 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laporan Praktikum 8 - Deriel Chaerahman</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Deriel C.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Header Laporan -->
+    <section class="py-4 mt-5">
+        <div class="container py-4">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-secondary">Home
+                            /</a></li>
+                    <li class="breadcrumb-item"><a href="../blog.html" class="text-decoration-none text-secondary">Blog
+                            /</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Laporan Praktikum</li>
+                </ol>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-5 fw-bold text-gradient mb-3">Laporan Praktikum 8</h1>
+                    <p class="text-white fs-5">Laravel Relationship: Student, Major, dan Subject</p>
+                    <p class="text-secondary fs-7">Dibuat : 25 Mei 2026</p>
+                    <a href="https://github.com/Bilra-Hkr/PemrogramanWeb_2411533007/tree/project-prak8" target="_blank"
+                        class="btn btn-outline-light rounded-pill px-4 py-2">
+                        <i class="bi bi-github me-2"></i> Repository GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Header Laporan -->
+
+    <!-- Konten Laporan -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <!-- ==================== PENDAHULUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Pendahuluan</h4>
+                            <p class="text-secondary">
+                                Dalam membangun aplikasi web yang scalable dengan Laravel, salah satu aspek terpenting
+                                adalah
+                                kemampuan untuk mengelola hubungan antar data (relationship) dengan baik. Database
+                                relasional modern memerlukan
+                                pendekatan yang terstruktur untuk menghubungkan berbagai entitas sehingga integritas dan
+                                konsistensi data tetap terjaga.
+                            </p>
+                            <p class="text-secondary">
+                                Laravel menyediakan fitur Eloquent ORM (Object-Relational Mapping) yang powerful untuk
+                                memetakan hubungan tabel
+                                database ke dalam bentuk objek yang mudah digunakan. Melalui pendekatan ini, developer
+                                tidak perlu menulis query SQL
+                                yang rumit, cukup dengan mendefinisikan method relasi di dalam Model.
+                            </p>
+                            <p class="text-secondary">
+                                Praktikum ini bertujuan memahami dan mengimplementasikan dua jenis relasi fundamental
+                                yaitu
+                                <strong>One-to-Many</strong> dan <strong>Many-to-Many</strong> melalui studi kasus
+                                sistem akademik yang menghubungkan
+                                data program studi (Major), mahasiswa (Student), dan mata kuliah (Subject).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TUJUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Tujuan Praktikum</h4>
+                            <ul class="text-secondary">
+                                <li>Memahami konsep relationship dalam database relasional dan implementasinya di
+                                    Laravel Eloquent.</li>
+                                <li>Mampu membuat file migration dengan proper foreign key constraint dan cascade
+                                    delete.</li>
+                                <li>Mengimplementasikan relasi One-to-Many antara Major dan Student, serta Many-to-Many
+                                    antara Student dan Subject.</li>
+                                <li>Menerapkan teknik Eager Loading untuk mengoptimalkan performa query database.</li>
+                                <li>Menggunakan method seperti <code>attach()</code>, <code>sync()</code> untuk
+                                    mengelola relasi Many-to-Many.</li>
+                                <li>Menampilkan data berelasi dengan kompleks di halaman view dengan struktur yang rapi.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANDASAN TEORI ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-book me-2"></i>Landasan Teori</h4>
+                            <p class="text-secondary mb-3">
+                                Relationship atau relasi adalah hubungan antar tabel dalam database yang digunakan untuk
+                                menghubungkan data
+                                secara logis dan menjaga integritas referensial.
+                            </p>
+
+                            <div class="accordion accordion-flush custom-accordion" id="accordionTeori">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-onetomany"
+                                            aria-expanded="false">
+                                            One-to-Many Relationship
+                                        </button>
+                                    </h2>
+                                    <div id="teori-onetomany" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Relasi One-to-Many menggambarkan hubungan di mana satu record dari tabel
+                                            parent dapat memiliki
+                                            banyak record di tabel child. Contoh: satu program studi (Major) dapat
+                                            memiliki banyak mahasiswa (Student).
+                                            Pada tabel child, disimpan foreign key yang mereferensi primary key tabel
+                                            parent.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-manytomany"
+                                            aria-expanded="false">
+                                            Many-to-Many Relationship
+                                        </button>
+                                    </h2>
+                                    <div id="teori-manytomany" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Relasi Many-to-Many menggambarkan hubungan di mana banyak record dari tabel
+                                            A dapat memiliki
+                                            hubungan dengan banyak record dari tabel B. Untuk mewujudkan ini, diperlukan
+                                            tabel perantara (pivot table)
+                                            yang menyimpan foreign key dari kedua tabel tersebut. Contoh: banyak
+                                            mahasiswa dapat mengambil banyak mata kuliah.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-eloquent"
+                                            aria-expanded="false">
+                                            Eloquent ORM dan Relasi
+                                        </button>
+                                    </h2>
+                                    <div id="teori-eloquent" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Eloquent ORM adalah sistem yang mengubah tabel database menjadi objek yang
+                                            dapat dimanipulasi melalui kode PHP.
+                                            Dengan method-method seperti <code>hasMany()</code>,
+                                            <code>belongsTo()</code>, dan <code>belongsToMany()</code>,
+                                            developer dapat mendefinisikan relasi antar model tanpa query SQL manual.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-eager"
+                                            aria-expanded="false">
+                                            Eager Loading dan N+1 Problem
+                                        </button>
+                                    </h2>
+                                    <div id="teori-eager" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            N+1 problem terjadi ketika melakukan query di dalam loop, menyebabkan banyak
+                                            database calls yang tidak efisien.
+                                            Eager Loading menggunakan method <code>with()</code> untuk memuat relasi
+                                            bersamaan dengan data utama dalam satu query,
+                                            mengurangi beban database secara signifikan.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-pivot"
+                                            aria-expanded="false">
+                                            Pivot Table dan Method Manajemen Relasi
+                                        </button>
+                                    </h2>
+                                    <div id="teori-pivot" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-secondary">
+                                            Pivot table adalah tabel perantara yang menyimpan dua foreign key. Method
+                                            <code>attach()</code> digunakan
+                                            untuk menambahkan relasi baru, sedangkan <code>sync()</code> digunakan untuk
+                                            sinkronisasi relasi dengan
+                                            menghapus yang tidak ada dalam array baru dan menambahkan yang baru.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== ALAT DAN BAHAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-tools me-2"></i>Alat dan Bahan</h4>
+                            <ul class="text-secondary mb-0">
+                                <li>Laptop / Komputer</li>
+                                <li>XAMPP (Apache + MySQL)</li>
+                                <li>Visual Studio Code</li>
+                                <li>Composer, Git, Node.js, NPM</li>
+                                <li>Database Management: phpMyAdmin</li>
+                                <li>Browser (Google Chrome / Firefox)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANGKAH PENGERJAAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-4"><i class="bi bi-list-ol me-2"></i>Langkah Pengerjaan
+                            </h4>
+
+                            <!-- LANGKAH 1 -->
+                            <p class="text-white fw-semibold mb-1">1. Persiapan Project dan Database</p>
+                            <p class="text-secondary">
+                                Melanjutkan project laravel dari praktikum 7. Buka file <code>.env</code> dan pastikan
+                                konfigurasi detail koneksi
+                                database sesuai:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=example_app
+DB_USERNAME=root
+DB_PASSWORD=</code></pre>
+                            <br>
+
+                            <!-- LANGKAH 2 -->
+                            <p class="text-white fw-semibold mb-1">2. Membuat Migration File untuk Tabel Majors</p>
+                            <p class="text-secondary">
+                                Langkah pertama adalah membangun struktur tabel untuk program studi (Majors). Buat
+                                migration file baru:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:migration create_majors_table</code></pre>
+                            <p class="text-secondary">
+                                Buka file migration yang baru dibuat di <code>database/migrations</code> dan isi dengan
+                                skema tabel majors:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('majors', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;string('name');
+            $table-&gt;timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('majors');
+    }
+};</code></pre>
+                            <p class="text-secondary mb-1">
+                                Tabel majors memiliki kolom id sebagai primary key, name untuk menyimpan nama program
+                                studi,
+                                serta timestamps untuk mencatat waktu pembuatan dan perubahan data.
+                                <!-- <img src="img/laprak8-1.png" alt="Migration Majors" class="img-fluid rounded mt-2 mb-4"> -->
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 3 -->
+                            <p class="text-white fw-semibold mb-1">3. Membuat Migration File untuk Tabel Students</p>
+                            <p class="text-secondary">
+                                Selanjutnya buat migration file untuk tabel mahasiswa dengan relasi One-to-Many ke tabel
+                                majors:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:migration create_students_table</code></pre>
+                            <p class="text-secondary">
+                                Isi file migration students dengan kode berikut yang menyertakan foreign key ke tabel
+                                majors:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('students', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;string('nim')-&gt;unique();
+            $table-&gt;string('name');
+            $table-&gt;text('address');
+            $table-&gt;foreignId('major_id')-&gt;constrained('majors')-&gt;onDelete('cascade');
+            $table-&gt;timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('students');
+    }
+};</code></pre>
+                            <p class="text-secondary mb-1">
+                                Pada tabel students, kolom <code>major_id</code> berfungsi sebagai foreign key yang
+                                mereferensi tabel majors.
+                                Pengaturan <code>onDelete('cascade')</code> memastikan ketika satu program studi
+                                dihapus, semua mahasiswa
+                                di program studi tersebut akan terhapus otomatis.
+                                <!-- <img src="img/laprak8-2.png" alt="Migration Students"
+                                    class="img-fluid rounded mt-2 mb-4"> -->
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 4 -->
+                            <p class="text-white fw-semibold mb-1">4. Membuat Migration File untuk Tabel Subjects</p>
+                            <p class="text-secondary">
+                                Buat migration file untuk tabel mata kuliah:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:migration create_subjects_table</code></pre>
+                            <p class="text-secondary">
+                                Isi file migration subjects dengan skema yang menyimpan data mata kuliah:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('subjects', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;string('name');
+            $table-&gt;integer('sks');
+            $table-&gt;timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('subjects');
+    }
+};</code></pre>
+                            <p class="text-secondary mb-1">
+                                Tabel subjects menyimpan nama mata kuliah dan jumlah kredit (SKS). Tabel ini akan
+                                terhubung dengan
+                                tabel students melalui relasi Many-to-Many.
+                                <!-- <img src="img/laprak8-3.png" alt="Migration Subjects"
+                                    class="img-fluid rounded mt-2 mb-4"> -->
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 5 -->
+                            <p class="text-white fw-semibold mb-1">5. Membuat Migration File untuk Tabel Pivot
+                                Student_Subject</p>
+                            <p class="text-secondary">
+                                Untuk mendukung relasi Many-to-Many, buat tabel perantara (pivot table) yang
+                                menghubungkan students dan subjects:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:migration create_student_subject_table</code></pre>
+                            <p class="text-secondary">
+                                Isi file migration dengan struktur pivot table:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up()
+    {
+        Schema::create('student_subject', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;foreignId('student_id')-&gt;constrained('students')-&gt;onDelete('cascade');
+            $table-&gt;foreignId('subject_id')-&gt;constrained('subjects')-&gt;onDelete('cascade');
+            $table-&gt;timestamps();
+            
+            // Mencegah kombinasi student_id dan subject_id yang sama tersimpan lebih dari sekali
+            $table-&gt;unique(['student_id', 'subject_id']);
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('student_subject');
+    }
+};</code></pre>
+                            <p class="text-secondary">
+                                Tabel pivot ini menyimpan dua foreign key yang mereferensi students dan subjects.
+                                Constraint unique mencegah seorang mahasiswa terdaftar pada mata kuliah yang sama
+                                berkali-kali.
+                            </p>
+                            <p class="text-secondary mb-1">
+                                Setelah semua migration file dibuat, jalankan perintah migrate untuk membuat tabel di
+                                database:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan migrate</code></pre>
+                            <br>
+
+                            <!-- LANGKAH 6 -->
+                            <p class="text-white fw-semibold mb-1">6. Membuat Model dengan Definisi Relationship</p>
+                            <p class="text-secondary">
+                                Buat Model Major dengan method relasi ke Student:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:model Major</code></pre>
+                            <p class="text-secondary">
+                                Buka file <code>app/Models/Major.php</code> dan definisikan relasi One-to-Many:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Major extends Model
+{
+    protected $fillable = ['name'];
+
+    public function students(): HasMany
+    {
+        return $this-&gt;hasMany(Student::class);
+    }
+}</code></pre>
+                            <p class="text-secondary">
+                                Buat Model Student dengan method relasi ke Major dan Subject:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:model Student</code></pre>
+                            <p class="text-secondary">
+                                Isi <code>app/Models/Student.php</code> dengan definisi kedua relasi:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+class Student extends Model
+{
+    protected $fillable = ['nim', 'name', 'address', 'major_id'];
+
+    public function major(): BelongsTo
+    {
+        return $this-&gt;belongsTo(Major::class);
+    }
+
+    public function subjects(): BelongsToMany
+    {
+        return $this-&gt;belongsToMany(Subject::class);
+    }
+}</code></pre>
+                            <p class="text-secondary">
+                                Buat Model Subject dengan method relasi ke Student:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:model Subject</code></pre>
+                            <p class="text-secondary">
+                                Isi <code>app/Models/Subject.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+class Subject extends Model
+{
+    protected $fillable = ['name', 'sks'];
+
+    public function students(): BelongsToMany
+    {
+        return $this-&gt;belongsToMany(Student::class);
+    }
+}</code></pre>
+                            <!-- <p class="text-secondary mb-1">
+                                <img src="img/laprak8-4.png" alt="Model Definitions"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p> -->
+                            <br>
+
+                            <!-- LANGKAH 7 -->
+                            <p class="text-white fw-semibold mb-1">7. Membuat Seeder untuk Data Dummy</p>
+                            <p class="text-secondary">
+                                Buat seeder untuk program studi:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:seeder MajorSeeder</code></pre>
+                            <p class="text-secondary">
+                                Isi <code>database/seeders/MajorSeeder.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace Database\Seeders;
+
+use App\Models\Major;
+use Illuminate\Database\Seeder;
+
+class MajorSeeder extends Seeder
+{
+    public function run()
+    {
+        $majors = [
+            'Teknik Informatika',
+            'Sistem Informasi',
+            'Teknik Komputer',
+            'Keamanan Siber'
+        ];
+
+        foreach ($majors as $major) {
+            Major::create(['name' =&gt; $major]);
+        }
+
+        $this-&gt;command-&gt;info('Major seeder berhasil dijalankan');
+    }
+}</code></pre>
+                            <p class="text-secondary">
+                                Buat seeder untuk mata kuliah:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:seeder SubjectSeeder</code></pre>
+                            <p class="text-secondary">
+                                Isi <code>database/seeders/SubjectSeeder.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace Database\Seeders;
+
+use App\Models\Subject;
+use Illuminate\Database\Seeder;
+
+class SubjectSeeder extends Seeder
+{
+    public function run()
+    {
+        $subjects = [
+            ['name' =&gt; 'Pemrograman Web', 'sks' =&gt; 3],
+            ['name' =&gt; 'Basis Data', 'sks' =&gt; 3],
+            ['name' =&gt; 'Algoritma dan Struktur Data', 'sks' =&gt; 4],
+            ['name' =&gt; 'Jaringan Komputer', 'sks' =&gt; 3],
+            ['name' =&gt; 'Sistem Operasi', 'sks' =&gt; 3],
+            ['name' =&gt; 'Keamanan Informasi', 'sks' =&gt; 3]
+        ];
+
+        foreach ($subjects as $subject) {
+            Subject::create($subject);
+        }
+
+        $this-&gt;command-&gt;info('Subject seeder berhasil dijalankan');
+    }
+}</code></pre>
+                            <p class="text-secondary">
+                                Buat seeder untuk mahasiswa yang lebih kompleks:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:seeder StudentSeeder</code></pre>
+                            <p class="text-secondary">
+                                Isi <code>database/seeders/StudentSeeder.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace Database\Seeders;
+
+use App\Models\Student;
+use App\Models\Subject;
+use Illuminate\Database\Seeder;
+
+class StudentSeeder extends Seeder
+{
+    public function run()
+    {
+        $students = [
+            ['nim' =&gt; '2411533001', 'name' =&gt; 'Ahmad Rizki', 'address' =&gt; 'Jalan Merpati No. 5', 'major_id' =&gt; 1],
+            ['nim' =&gt; '2411533002', 'name' =&gt; 'Budi Santoso', 'address' =&gt; 'Jalan Anggrek No. 10', 'major_id' =&gt; 1],
+            ['nim' =&gt; '2411533003', 'name' =&gt; 'Citra Dewi', 'address' =&gt; 'Jalan Melati No. 7', 'major_id' =&gt; 2],
+            ['nim' =&gt; '2411533004', 'name' =&gt; 'Doni Hermawan', 'address' =&gt; 'Jalan Mawar No. 3', 'major_id' =&gt; 2],
+            ['nim' =&gt; '2411533005', 'name' =&gt; 'Eka Putri', 'address' =&gt; 'Jalan Dahlia No. 8', 'major_id' =&gt; 3],
+        ];
+
+        foreach ($students as $studentData) {
+            $student = Student::create($studentData);
+            
+            // Assign mata kuliah secara random (2-4 mata kuliah per mahasiswa)
+            $subjects = Subject::inRandomOrder()-&gt;take(rand(2, 4))-&gt;pluck('id');
+            $student-&gt;subjects()-&gt;attach($subjects);
+        }
+
+        $this-&gt;command-&gt;info('Student seeder berhasil dijalankan');
+    }
+}</code></pre>
+                            <p class="text-secondary">
+                                Daftarkan ketiga seeder di <code>database/seeders/DatabaseSeeder.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    public function run()
+    {
+        $this-&gt;call([
+            MajorSeeder::class,
+            SubjectSeeder::class,
+            StudentSeeder::class,
+        ]);
+    }
+}</code></pre>
+                            <p class="text-secondary mb-1">
+                                Jalankan seeder untuk mengisi database dengan data dummy:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan db:seed</code></pre>
+                            <br>
+
+                            <!-- LANGKAH 8 -->
+                            <p class="text-white fw-semibold mb-1">8. Membuat Controller untuk Mengelola Data Relasi</p>
+                            <p class="text-secondary">
+                                Buat controller untuk menampilkan data mahasiswa dengan relasi:
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>php artisan make:controller StudentController</code></pre>
+                            <p class="text-secondary">
+                                Buka <code>app/Http/Controllers/StudentController.php</code> dan implementasikan method
+                                index dengan eager loading:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Student;
+use App\Models\Major;
+use App\Models\Subject;
+use Illuminate\Http\Request;
+
+class StudentController extends Controller
+{
+    public function index()
+    {
+        // Eager loading untuk menghindari N+1 problem
+        $students = Student::with(['major', 'subjects'])-&gt;get();
+        return view('students.index', compact('students'));
+    }
+
+    public function create()
+    {
+        $majors = Major::all();
+        $subjects = Subject::all();
+        return view('students.create', compact('majors', 'subjects'));
+    }
+
+    public function store(Request $request)
+    {
+        $student = Student::create($request-&gt;only(['nim', 'name', 'address', 'major_id']));
+        
+        // Attach mata kuliah ke mahasiswa
+        if ($request-&gt;has('subjects')) {
+            $student-&gt;subjects()-&gt;attach($request-&gt;subjects);
+        }
+
+        return redirect()-&gt;route('students.index')-&gt;with('success', 'Mahasiswa berhasil ditambahkan');
+    }
+
+    public function edit($id)
+    {
+        $student = Student::with(['subjects'])-&gt;findOrFail($id);
+        $majors = Major::all();
+        $subjects = Subject::all();
+        return view('students.edit', compact('student', 'majors', 'subjects'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $student = Student::findOrFail($id);
+        $student-&gt;update($request-&gt;only(['nim', 'name', 'address', 'major_id']));
+        
+        // Sync mata kuliah (menghapus yang tidak ada, menambah yang baru)
+        if ($request-&gt;has('subjects')) {
+            $student-&gt;subjects()-&gt;sync($request-&gt;subjects);
+        }
+
+        return redirect()-&gt;route('students.index')-&gt;with('success', 'Mahasiswa berhasil diubah');
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student-&gt;delete();
+
+        return redirect()-&gt;route('students.index')-&gt;with('success', 'Mahasiswa berhasil dihapus');
+    }
+}</code></pre>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak8-5.png" alt="Controller Implementation"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 9 -->
+                            <p class="text-white fw-semibold mb-1">9. Konfigurasi Routes</p>
+                            <p class="text-secondary">
+                                Daftarkan route resource untuk StudentController di <code>routes/web.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('students', StudentController::class);</code></pre>
+                            <br>
+
+                            <!-- LANGKAH 10 -->
+                            <p class="text-white fw-semibold mb-1">10. Membuat View untuk Menampilkan Data</p>
+                            <p class="text-secondary">
+                                Buat folder <code>resources/views/students</code> dan buat file
+                                <code>index.blade.php</code>
+                                untuk menampilkan daftar mahasiswa:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Daftar Mahasiswa&lt;/title&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container py-5"&gt;
+        &lt;h1 class="mb-4"&gt;Daftar Mahasiswa&lt;/h1&gt;
+        
+        &lt;a href="{{ route('students.create') }}" class="btn btn-primary mb-3"&gt;Tambah Mahasiswa&lt;/a&gt;
+
+        &lt;div class="table-responsive"&gt;
+            &lt;table class="table table-striped table-hover"&gt;
+                &lt;thead class="table-dark"&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;NIM&lt;/th&gt;
+                        &lt;th&gt;Nama&lt;/th&gt;
+                        &lt;th&gt;Program Studi&lt;/th&gt;
+                        &lt;th&gt;Mata Kuliah&lt;/th&gt;
+                        &lt;th&gt;Total SKS&lt;/th&gt;
+                        &lt;th&gt;Aksi&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    @foreach($students as $student)
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;strong&gt;{{ $student-&gt;nim }}&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;{{ $student-&gt;name }}&lt;/td&gt;
+                        &lt;td&gt;{{ $student-&gt;major-&gt;name }}&lt;/td&gt;
+                        &lt;td&gt;
+                            @foreach($student-&gt;subjects as $subject)
+                                &lt;span class="badge bg-info"&gt;{{ $subject-&gt;name }}&lt;/span&gt;
+                            @endforeach
+                        &lt;/td&gt;
+                        &lt;td&gt;&lt;strong&gt;{{ $student-&gt;subjects-&gt;sum('sks') }}&lt;/strong&gt;&lt;/td&gt;
+                        &lt;td&gt;
+                            &lt;a href="{{ route('students.edit', $student-&gt;id) }}" class="btn btn-sm btn-warning"&gt;Edit&lt;/a&gt;
+                            &lt;form action="{{ route('students.destroy', $student-&gt;id) }}" method="POST" style="display:inline;"&gt;
+                                @csrf
+                                @method('DELETE')
+                                &lt;button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin?')"&gt;Hapus&lt;/button&gt;
+                            &lt;/form&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                    @endforeach
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak8-6.png" alt="View Index Mahasiswa"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 11 -->
+                            <p class="text-white fw-semibold mb-1">11. Membuat View Create untuk Menambah Mahasiswa</p>
+                            <p class="text-secondary">
+                                Buat file <code>resources/views/students/create.blade.php</code>:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Tambah Mahasiswa&lt;/title&gt;
+    &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container py-5"&gt;
+        &lt;div class="row justify-content-center"&gt;
+            &lt;div class="col-md-8"&gt;
+                &lt;h1 class="mb-4"&gt;Tambah Mahasiswa Baru&lt;/h1&gt;
+
+                &lt;form action="{{ route('students.store') }}" method="POST"&gt;
+                    @csrf
+                    
+                    &lt;div class="mb-3"&gt;
+                        &lt;label class="form-label"&gt;NIM&lt;/label&gt;
+                        &lt;input type="text" name="nim" class="form-control" required&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="mb-3"&gt;
+                        &lt;label class="form-label"&gt;Nama Lengkap&lt;/label&gt;
+                        &lt;input type="text" name="name" class="form-control" required&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="mb-3"&gt;
+                        &lt;label class="form-label"&gt;Alamat&lt;/label&gt;
+                        &lt;textarea name="address" class="form-control" rows="3" required&gt;&lt;/textarea&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="mb-3"&gt;
+                        &lt;label class="form-label"&gt;Program Studi&lt;/label&gt;
+                        &lt;select name="major_id" class="form-select" required&gt;
+                            &lt;option value=""&gt;Pilih Program Studi&lt;/option&gt;
+                            @foreach($majors as $major)
+                                &lt;option value="{{ $major-&gt;id }}"&gt;{{ $major-&gt;name }}&lt;/option&gt;
+                            @endforeach
+                        &lt;/select&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class="mb-3"&gt;
+                        &lt;label class="form-label"&gt;Mata Kuliah&lt;/label&gt;
+                        &lt;div&gt;
+                            @foreach($subjects as $subject)
+                                &lt;div class="form-check"&gt;
+                                    &lt;input type="checkbox" name="subjects[]" value="{{ $subject-&gt;id }}" class="form-check-input" id="subject_{{ $subject-&gt;id }}"&gt;
+                                    &lt;label class="form-check-label" for="subject_{{ $subject-&gt;id }}"&gt;
+                                        {{ $subject-&gt;name }} ({{ $subject-&gt;sks }} SKS)
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            @endforeach
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;button type="submit" class="btn btn-success"&gt;Simpan&lt;/button&gt;
+                    &lt;a href="{{ route('students.index') }}" class="btn btn-secondary"&gt;Batal&lt;/a&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            <p class="text-secondary mb-1">
+                                <img src="img/laprak8-7.png" alt="View Create Mahasiswa"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+                            <br>
+
+                            <!-- LANGKAH 12 -->
+                            <p class="text-white fw-semibold mb-1">12. Menjalankan dan Menguji Aplikasi</p>
+                            <p class="text-secondary">
+                                Jalankan development server Laravel:
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>php artisan serve</code></pre>
+                            <p class="text-secondary">
+                                Akses aplikasi di browser melalui <code>http://127.0.0.1:8000/students</code>.
+                                Anda akan melihat daftar mahasiswa dengan data program studi dan mata kuliah yang
+                                terhubung melalui relasi database.
+                            </p>
+                            <p class="text-secondary mb-1">
+                                Uji fitur untuk menambah mahasiswa baru, edit data, dan hapus data untuk memastikan
+                                relasi bekerja dengan baik.
+                                <img src="img/laprak8-8.png" alt="Tampilan Akhir Aplikasi"
+                                    class="img-fluid rounded mt-2 mb-4">
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- ==================== KESIMPULAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Kesimpulan</h4>
+                            <p class="text-secondary">
+                                Melalui praktikum implementasi Relationship dalam Laravel, telah berhasil dipelajari dan
+                                diterapkan konsep-konsep penting
+                                dalam mengelola data relasional dengan framework modern.
+                            </p>
+                            <ul class="text-secondary">
+                                <li><strong>Migration dengan Foreign Key:</strong> Pemahaman mendalam tentang cara
+                                    mendefinisikan hubungan antar tabel
+                                    melalui file migration dan constraint cascade delete untuk menjaga integritas data.
+                                </li>
+                                <li><strong>Eloquent ORM:</strong> Penggunaan method-method Eloquent seperti
+                                    <code>hasMany()</code>,
+                                    <code>belongsTo()</code>, dan <code>belongsToMany()</code> membuat pengelolaan
+                                    relasi menjadi jauh lebih mudah
+                                    dibandingkan menulis query SQL manual.
+                                </li>
+                                <li><strong>Eager Loading:</strong> Teknik <code>with()</code> berhasil mengatasi N+1
+                                    problem dan meningkatkan
+                                    performa aplikasi secara signifikan dengan mengurangi jumlah database query.
+                                </li>
+                                <li><strong>Manajemen Many-to-Many:</strong> Method <code>attach()</code> dan
+                                    <code>sync()</code> memberikan
+                                    cara yang elegant untuk mengelola relasi kompleks tanpa perlu manipulasi manual
+                                    tabel pivot.
+                                </li>
+                                <li><strong>View dengan Blade Template:</strong> Blade template memudahkan penampilan
+                                    data berelasi dengan
+                                    syntax yang readable dan intuitif melalui akses properti relasional.
+                                </li>
+                            </ul>
+                            <p class="text-secondary mb-0">
+                                Penguasaan konsep relationship di Laravel adalah fondasi penting untuk membangun
+                                aplikasi web yang lebih kompleks
+                                dengan struktur data yang terorganisir dan efisien. Dengan pemahaman ini, developer siap
+                                menghadapi tantangan
+                                dalam implementasi sistem informasi skala menengah hingga besar.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Konten Laporan -->
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row flex justify-content-end mb-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">About Website</h5>
+                    <p>
+                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (Deriel) dan daftar
+                        project yang pernah dikerjakan.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="../about.html" class="footer-link">About Me</a>
+                    <a href="../portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="../blog.html" class="footer-link">Blog</a>
+                    <a href="../contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">My Contact</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Padang, Indonesia</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> dariel@gmail.com</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/bilra_ch?igsh=em5pNzh0b2hoa3o3" class="social-icon"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://github.com/Bilra-Hkr" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+                            class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright-border">
+                <div class="text-md-center">
+                    <p class="mb-0">&copy;2025 Copyright : Deriel Chaerahman.</p>
+                    <p class="mb-0 small">Develop with Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-5x9p2MNl82nCPx+6sGr2nPv+4rgaQPc+e8plOFqLPlXkF2tWcseSVPyj9EWmFG+E"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
