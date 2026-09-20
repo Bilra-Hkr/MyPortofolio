@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laporan Praktikum 2 Aplikasi Mobile - Deriel Chaerahman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Deriel C.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Header Laporan -->
+    <section class="py-4 mt-5">
+        <div class="container py-4">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-white">Home
+                            /</a></li>
+                    <li class="breadcrumb-item"><a href="../blog.html" class="text-decoration-none text-white">Blog
+                            /</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Laporan Praktikum</li>
+                </ol>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-5 fw-bold text-gradient mb-3">Laporan Praktikum 2 Aplikasi Mobile</h1>
+                    <p class="text-white fs-5">Pengenalan Widgets Stateless, Stateful, Layouting &amp; Styling</p>
+                    <p class="text-white fs-7">Dibuat : September 2026</p>
+                    <a href="https://github.com/Bilra-Hkr/DerielChaerahman_2411533007_P.Apk-Mobile" target="_blank"
+                        class="btn btn-outline-light rounded-pill px-4 py-2">
+                        <i class="bi bi-github me-2"></i> Repository GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Header Laporan -->
+
+    <!-- Konten Laporan -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <!-- ==================== PENDAHULUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Pendahuluan</h4>
+                            <p class="text-white">
+                                Praktikum ini dilakukan untuk menerapkan konsep Stateless Widget, Stateful Widget,
+                                serta manajemen state dasar dalam pemrograman Flutter, yaitu agar aplikasi dapat
+                                menyusun struktur antarmuka (user interface) secara terstruktur dan merespons
+                                interaksi pengguna secara dinamis. Mempelajari cara mengimplementasikan kerangka
+                                aplikasi <code>MaterialApp</code> dan <code>Scaffold</code>, serta pemanfaatan
+                                fungsi <code>setState()</code> untuk memperbarui tampilan saat terjadi perubahan
+                                data internal.
+                            </p>
+                            <p class="text-white">
+                                Studi kasus difokuskan pada pembuatan kartu saldo interaktif dan komponen sapaan
+                                pengguna, di mana sistem dapat menyembunyikan (obscure) atau menampilkan nominal
+                                saldo serta nomor rekening secara otomatis saat pengguna menekan tombol ikon mata.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TUJUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Tujuan Praktikum</h4>
+                            <ul class="text-white mb-0">
+                                <li>Memahami kerangka dasar aplikasi Flutter (<code>MaterialApp</code> &amp;
+                                    <code>Scaffold</code>).
+                                </li>
+                                <li>Membedakan penggunaan <code>StatelessWidget</code> dan <code>StatefulWidget</code>.
+                                </li>
+                                <li>Menerapkan fungsi <code>setState()</code> untuk UI interaktif.</li>
+                                <li>Menerapkan widget <code>Row</code> untuk deretan tombol aksi.</li>
+                                <li>Menerapkan widget <code>Column</code> untuk daftar transaksi.</li>
+                                <li>Mengatur padding, margin, dan warna <code>Container</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANDASAN TEORI ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-book me-2"></i>Landasan Teori</h4>
+
+                            <div class="accordion accordion-flush custom-accordion" id="accordionTeori">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#teori-kerangka" aria-expanded="true">
+                                            Kerangka Dasar Aplikasi Flutter
+                                        </button>
+                                    </h2>
+                                    <div id="teori-kerangka" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            Dalam pengembangan project Flutter, disediakan widget yang berfungsi sebagai
+                                            fondasi visual dan struktur navigasi aplikasi berbasis Material Design.
+                                            <code>MaterialApp</code> merupakan widget pembungkus utama (root widget)
+                                            yang
+                                            menyematkan berbagai konfigurasi global aplikasi, seperti tema warna, judul,
+                                            rute navigasi, serta penyembunyian banner debug. <code>Scaffold</code>
+                                            adalah
+                                            widget yang menyediakan struktur layout dasar, mencakup slot-slot komponen
+                                            UI
+                                            seperti <code>appBar</code>, <code>body</code>, <code>drawer</code>, dan
+                                            <code>floatingActionButton</code>.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-stateless"
+                                            aria-expanded="false">
+                                            Stateless Widget
+                                        </button>
+                                    </h2>
+                                    <div id="teori-stateless" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            Widget yang tampilan antarmukanya bersifat statis dan konstan setelah
+                                            dibangun
+                                            (rendered) pertama kali di layar. Sangat cocok digunakan untuk elemen UI
+                                            dekoratif atau data statis yang tidak merespons interaksi. Berukuran lebih
+                                            ringan dan efisien secara performa saat di-render oleh Flutter engine.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-stateful"
+                                            aria-expanded="false">
+                                            Stateful Widget
+                                        </button>
+                                    </h2>
+                                    <div id="teori-stateful" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            Widget dinamis yang antarmukanya dapat berubah secara real-time sebagai
+                                            respons
+                                            terhadap interaksi pengguna, penerimaan data baru, atau pembaruan lifecycle.
+                                            Terbagi menjadi dua kelas: kelas Widget (mewarisi
+                                            <code>StatefulWidget</code>)
+                                            yang bertindak sebagai konfigurasi awal, dan kelas State (mewarisi
+                                            <code>State&lt;T&gt;</code>) tempat logika aplikasi, variabel internal yang
+                                            dapat berubah, dan method <code>build()</code> didefinisikan.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-state"
+                                            aria-expanded="false">
+                                            Manajemen State Dasar
+                                        </button>
+                                    </h2>
+                                    <div id="teori-state" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            State adalah sekumpulan data atau variabel internal yang menentukan tampilan
+                                            aktual suatu widget pada momen tertentu. <code>setState()</code> digunakan
+                                            untuk memberi tahu framework Flutter bahwa terjadi perubahan data pada objek
+                                            State. Ketika dipanggil, Flutter akan menandai widget sebagai <em>dirty</em>
+                                            dan secara otomatis mengeksekusi ulang method <code>build()</code> sehingga
+                                            UI di-render ulang sesuai nilai variabel terbaru.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-layout"
+                                            aria-expanded="false">
+                                            Tata Letak Layout &amp; Operator Logika UI
+                                        </button>
+                                    </h2>
+                                    <div id="teori-layout" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>Row</code> dan <code>Column</code> merupakan widget tata letak
+                                            multifungsi yang menyusun widget-widget anaknya secara horizontal (Row) atau
+                                            vertikal (Column). Operator Ternary (<code>condition ? expr1 : expr2</code>)
+                                            melakukan pengondisian cepat langsung pada properti widget, misalnya
+                                            mengubah
+                                            ikon atau teks secara dinamis berdasarkan nilai boolean state yang aktif.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== ALAT DAN BAHAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-tools me-2"></i>Alat dan Bahan</h4>
+                            <ul class="text-white mb-0">
+                                <li>Perangkat komputer atau laptop</li>
+                                <li>Jaringan internet</li>
+                                <li>Visual Studio Code IDE</li>
+                                <li>SDK Flutter</li>
+                                <li>Visual Studio (Emulator untuk run tampilan mobile)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANGKAH PENGERJAAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-4"><i class="bi bi-list-ol me-2"></i>Langkah Pengerjaan
+                            </h4>
+
+                            <!-- ===== MODUL 1 ===== -->
+                            <p class="text-white fw-semibold mb-3 fs-5">Modul 1</p>
+
+                            <!-- A. Widget Utama -->
+                            <p class="text-white fw-semibold mb-1">A. Widget Utama</p>
+
+                            <p class="text-white mb-1">1. Buat file <code>prak1modul1.dart</code> di folder
+                                <code>lib</code>, kemudian buat class widget utama <code>MyApp</code> sebagai
+                                <code>StatelessWidget</code> yang membungkus <code>MaterialApp</code> dengan
+                                konfigurasi global seperti judul, tema warna biru, dan menonaktifkan banner debug.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Expense Tracker',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const DashboardScreen(), // Halaman awal aplikasi
+    ); // MaterialApp
+  }
+}</code></pre>
+
+                            <p class="text-white mb-1">2. Buat halaman utama menggunakan <code>Scaffold</code>
+                                sebagai kelas <code>StatelessWidget</code>. <code>Scaffold</code> menyediakan
+                                <code>AppBar</code> bertuliskan "Praktikum 1: Widgets" dengan warna biru, dan
+                                <code>body</code> diisi <code>Padding</code> yang memuat <code>Column</code> berisi
+                                tiga widget: <code>GreetingWidget()</code>, <code>SizedBox</code>, dan
+                                <code>BalanceCardWidget()</code>.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Praktikum 1: Widgets'),
+        backgroundColor: Colors.blue,
+      ), // AppBar
+      body: const Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GreetingWidget(),    // Memanggil StatelessWidget
+            SizedBox(height: 20), // Jarak vertikal
+            BalanceCardWidget(), // Memanggil StatefulWidget
+          ],
+        ), // Column
+      ), // Padding
+    ); // Scaffold
+  }
+}</code></pre>
+
+                            <!-- B. Widget Sapaan (Stateless) -->
+                            <p class="text-white fw-semibold mb-1 mt-4">B. Membuat Widget Sapaan (Stateless)</p>
+
+                            <p class="text-white mb-1">1. Buat kelas <code>GreetingWidget</code> yang meng-extend
+                                <code>StatelessWidget</code> karena tampilannya tidak akan mengalami perubahan
+                                (statis).
+                            </p>
+                            <pre
+                                class="bg-dark text-success p-3 rounded mb-2"><code>class GreetingWidget extends StatelessWidget {</code></pre>
+
+                            <p class="text-white mb-1">2. Override method <code>build()</code> untuk menimpa
+                                fungsi bawaan parent class dan menyusun layout yang mengembalikan sebuah widget.
+                                Susun elemen dalam sebaris (<code>Row</code>) dengan
+                                <code>mainAxisAlignment: MainAxisAlignment.spaceBetween</code>, lalu tambahkan
+                                <code>Column</code> untuk menampilkan teks sapaan secara vertikal rata kiri, dan
+                                <code>CircleAvatar</code> untuk bingkai ikon profil berbentuk lingkaran.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [Text("Halo, Deril!"), Text("Selamat datang kembali")],
+        ), // Column
+        CircleAvatar(child: Icon(Icons.person)),
+      ],
+    ); // Row
+  }
+}</code></pre>
+                            <p class="text-white mb-1">
+                                Kode ini membuat widget (custom) yang bersifat statis, ditampilkan sebagai header
+                                halaman "MyApp", berisi teks sapaan dan ikon profil dengan style
+                                <em>spaceBetween</em>.
+                            </p>
+
+                            <!-- C. Kartu Saldo (Stateful) -->
+                            <p class="text-white fw-semibold mb-1 mt-4">C. Membuat Kartu Saldo (Stateful)</p>
+
+                            <p class="text-white mb-1">1. Buat kelas <code>BalanceCard</code> yang meng-extend
+                                <code>StatefulWidget</code> untuk tampilan kartu saldo yang dinamis.
+                                <code>createState()</code> merupakan fungsi wajib untuk membuat dan menghubungkan
+                                objek pengelola state (<code>_BalanceCardState</code>).
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>class BalanceCard extends StatefulWidget {
+  @override
+  _BalanceCardState createState() => _BalanceCardState();
+}</code></pre>
+
+                            <p class="text-white mb-1">2. Inisialisasi variabel state pada kelas
+                                <code>_BalanceCardState</code>. Variabel <code>_isObscure</code> menyimpan status
+                                sensor (tampil/sembunyi), dan <code>_balance</code> menyimpan nilai nominal saldo.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>class _BalanceCardState extends State<BalanceCard> {
+  bool _isObscure = false;
+  final String _balance = "Rp 5.000.000";</code></pre>
+
+                            <p class="text-white mb-1">3. Susun tampilan kartu menggunakan widget
+                                <code>Card</code> berlatar biru sebagai efek kartu, dengan <code>Row</code>
+                                berstyle <em>spaceBetween</em>. Widget <code>Text</code> menggunakan Ternary
+                                Operator untuk mengkondisikan tampilan berdasarkan nilai <code>_isObscure</code>:
+                                jika <code>true</code> menampilkan "Rp ********", jika <code>false</code>
+                                menampilkan nilai <code>_balance</code>. <code>IconButton</code> mengubah nilai
+                                <code>_isObscure</code> sekaligus mengubah bentuk ikon secara dinamis menggunakan
+                                <code>visibility_off</code> saat tersensor dan <code>visibility</code> saat
+                                terlihat.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.blueAccent,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            _isObscure ? "Rp ********" : _balance, // Logika Ternary sensor teks
+          ), // Text
+          IconButton(
+            icon: Icon(_isObscure ? Icons.visibility_off : Icons.visibility),
+            onPressed: () {
+              setState(() {
+                _isObscure = !_isObscure; // Membalik nilai boolean
+              });
+            },
+          ), // IconButton
+        ],
+      ), // Row
+    ); // Card
+  }
+}</code></pre>
+
+                            <!-- D. Latihan Modul 1 -->
+                            <p class="text-white fw-semibold mb-1 mt-4">D. Latihan Modul 1</p>
+
+                            <p class="text-white mb-1"><strong>Tugas 1 – Styling:</strong> Ubah warna tema
+                                <code>BalanceCard</code> dari biru (<code>Colors.blueAccent</code>) menjadi hijau
+                                emerald (<code>Colors.teal</code>), serta tambahkan <code>elevation</code> dan
+                                <code>shape</code> dengan sudut membulat.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>return Card(
+  elevation: 4,
+  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  color: Colors.teal,
+  ...</code></pre>
+
+                            <p class="text-white mb-1"><strong>Tugas 2 – Modifikasi UI:</strong> Tambahkan teks
+                                statis "No. Rekening: 1234-5678" di bagian bawah nominal saldo di dalam kartu.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>const SizedBox(height: 8),
+Text(
+  _isObscure ? 'Rp 5.000.000' : 'Rp *********',
+  style: const TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  ), // TextStyle
+), // Text
+const SizedBox(height: 8),
+const Text(
+  'No. Rekening: 1234-5678',
+  style: TextStyle(fontSize: 14, color: Colors.white70),
+), // Text</code></pre>
+                            <p class="text-white mb-1">
+                                Output: kartu saldo berwarna teal dengan nominal saldo, nomor rekening statis di
+                                bawahnya, serta tombol ikon mata yang mengontrol visibilitas saldo secara dinamis.
+                            </p>
+                            <div class="text-center">
+                                <img src="img/prak2.1.png" alt="" width="350">
+                            </div>
+
+                            <!-- ===== MODUL 2 ===== -->
+                            <p class="text-white fw-semibold mb-3 fs-5 mt-5">Modul 2</p>
+                            <p class="text-white mb-3">Melanjutkan kode program di Modul 1.</p>
+
+                            <!-- A. Tombol Aksi -->
+                            <p class="text-white fw-semibold mb-1">A. Menyusun Tombol Aksi (Row)</p>
+
+                            <p class="text-white mb-1">Buat widget class <code>ActionButtonsWidget</code>
+                                bersifat statis. Elemen-elemennya disusun dalam sebaris (<code>Row</code>) dengan
+                                styling <code>spaceEvenly</code>, lalu diisi widget children yang menampilkan
+                                fungsi tombol berupa ikon panah bawah "Masuk", panah atas "Keluar", dan panah
+                                bolak-balik "Transfer".
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>class ActionButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        _buildButton(Icons.arrow_downward, "Masuk",   Colors.green),
+        _buildButton(Icons.arrow_upward,   "Keluar",  Colors.red),
+        _buildButton(Icons.swap_horiz,     "Transfer", Colors.blue),
+      ],
+    );
+  }
+}</code></pre>
+
+                            <!-- B. Daftar Transaksi -->
+                            <p class="text-white fw-semibold mb-1 mt-4">B. Menyusun Riwayat Daftar Transaksi (Column +
+                                ListTile)</p>
+
+                            <p class="text-white mb-1">Susun daftar transaksi secara vertikal menggunakan
+                                <code>Column</code> dan <code>ListTile</code>. Setiap item transaksi memuat
+                                <code>CircleAvatar</code> sebagai ikon indikator (leading), judul dan tanggal
+                                (title &amp; subtitle), serta nominal transaksi (trailing) yang diberi warna
+                                kondisional: merah untuk pengeluaran dan hijau untuk pemasukan.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>// Item Transaksi 1 – Pengeluaran
+ListTile(
+  leading: const CircleAvatar(
+    backgroundColor: Colors.redAccent,
+    child: Icon(Icons.fastfood, color: Colors.white),
+  ), // CircleAvatar
+  title: const Text('Makan Siang'),
+  subtitle: const Text('13 Sep 2026'),
+  trailing: const Text(
+    '- Rp 50.000',
+    style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+  ), // Text
+), // ListTile
+const Divider(height: 1),
+
+// Item Transaksi 2 – Pemasukan
+ListTile(
+  leading: const CircleAvatar(
+    backgroundColor: Colors.green,
+    child: Icon(Icons.attach_money, color: Colors.white),
+  ), // CircleAvatar
+  title: const Text('Gaji Bulanan'),
+  subtitle: const Text('01 Sep 2026'),
+  trailing: const Text(
+    '+ Rp 5.000.000',
+    style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+  ), // Text
+), // ListTile</code></pre>
+
+                            <!-- C. Integrasi Dashboard -->
+                            <p class="text-white fw-semibold mb-1 mt-4">C. Integrasi Dashboard (Scrollable)</p>
+
+                            <p class="text-white mb-1">Gabungkan seluruh widget ke dalam
+                                <code>SingleChildScrollView</code> pada <code>body</code> Scaffold agar konten
+                                dapat digulir dan tidak mengalami overflow saat layar memanjang.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>body: const SingleChildScrollView(
+  child: Padding(
+    padding: EdgeInsets.all(16.0),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GreetingWidget(),           // Dari Modul 1
+        SizedBox(height: 20),
+        BalanceCardWidget(),        // Dari Modul 1
+        SizedBox(height: 20),
+        ActionButtonsWidget(),      // Widget baru Modul 2
+        SizedBox(height: 20),
+        RecentTransactionsWidget(), // Widget baru Modul 2
+      ],
+    ), // Column
+  ), // Padding
+), // SingleChildScrollView</code></pre>
+
+                            <!-- D. Latihan Modul 2 -->
+                            <p class="text-white fw-semibold mb-1 mt-4">D. Latihan Modul 2</p>
+
+                            <p class="text-white mb-1"><strong>Tugas 1 – Styling:</strong> Pada widget Daftar
+                                Transaksi (<code>ListTile</code>), ubah warna trailing text pengeluaran menjadi
+                                merah dan text pemasukan menjadi hijau.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>// Pengeluaran – trailing merah
+trailing: const Text(
+  '- Rp 50.000',
+  style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+),
+
+// Pemasukan – trailing hijau
+trailing: const Text(
+  '+ Rp 5.000.000',
+  style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+),</code></pre>
+                            <p class="text-white mb-1">
+                                Output:
+                            </p>
+                            <div class="text-center">
+                                <img src="img/prak2.2.png" alt="" width="350">
+                            </div>
+
+                            <p class="text-white mb-1"><strong>Tugas 2 – Tambah Data:</strong> Tambahkan 2
+                                transaksi fiktif baru ke dalam daftar "Transaksi Terakhir" di bawah kode yang
+                                sudah ada.
+                            </p>
+                            <pre class="bg-dark text-success p-3 rounded mb-2"><code>// Transaksi Fiktif 1 – Pengeluaran Belanja Bulanan
+const ListTile(
+  leading: CircleAvatar(
+    backgroundColor: Colors.orange,
+    child: Icon(Icons.shopping_bag, color: Colors.white),
+  ), // CircleAvatar
+  title: Text('Belanja Bulanan'),
+  subtitle: Text('08 Sep 2026'),
+  trailing: Text(
+    '- Rp 350.000',
+    style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+  ), // Text
+), // ListTile
+const Divider(height: 1),
+
+// Transaksi Fiktif 2 – Pemasukan Bonus Projek
+const ListTile(
+  leading: CircleAvatar(
+    backgroundColor: Colors.purple,
+    child: Icon(Icons.card_giftcard, color: Colors.white),
+  ), // CircleAvatar
+  title: Text('Bonus Projek'),
+  subtitle: Text('05 Sep 2026'),
+  trailing: Text(
+    '+ Rp 1.200.000',
+    style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+  ), // Text
+), // ListTile</code></pre>
+                            <p class="text-white mb-1">
+                                Output:
+                            </p>
+                            <div class="text-center">
+                                <img src="img/prak2.3.png" alt="" width="350">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ==================== TAMPILAN AKHIR ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-phone me-2"></i>Tampilan Akhir Halaman
+                                Aplikasi</h4>
+                            <p class="text-white">
+                                Penggabungan <code>GreetingWidget</code> (Stateless) dan <code>BalanceCard</code>
+                                (Stateful) bersama <code>ActionButtonsWidget</code> dan
+                                <code>RecentTransactionsWidget</code> ke dalam Scaffold utama yang dapat digulir.
+                            </p>
+                            <ul class="text-white mb-3">
+                                <li>Sapaan statis di bagian atas.</li>
+                                <li>Kartu saldo teal merespons ketukan pada ikon mata, menampilkan nominal dan nomor
+                                    rekening.</li>
+                                <li>Tiga tombol aksi (Masuk, Keluar, Transfer) tersusun horizontal.</li>
+                                <li>Daftar "Transaksi Terakhir" berisi 5 item dengan warna trailing kondisional.</li>
+                            </ul>
+                            <div class="text-center">
+                                <img src="img/prak2.4.png" alt="" width="350">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ==================== KESIMPULAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Kesimpulan</h4>
+                            <p class="text-white">
+                                Dari hasil praktikum ini, berhasil dibangun UI aplikasi menggunakan berbagai widget
+                                penataan tata letak (layouting) dan styling pada Flutter.
+                            </p>
+                            <ul class="text-white">
+                                <li><strong>Row &amp; Column:</strong> Row digunakan untuk menyusun elemen secara
+                                    horizontal
+                                    seperti pada <code>ActionButtonsWidget</code>, sedangkan Column dan ListTile
+                                    menyusun daftar transaksi secara vertikal dengan struktur yang rapi.</li>
+                                <li><strong>SingleChildScrollView:</strong> Mencegah terjadinya masalah overflow
+                                    saat konten layar memanjang.</li>
+                                <li><strong>Fungsi pembantu <code>_buildActionButton</code>:</strong> Memungkinkan
+                                    pembuatan widget dilakukan secara efisien tanpa pengulangan kode (modularitas).</li>
+                                <li><strong>Pewarnaan kondisional:</strong> Warna hijau untuk pemasukan dan merah
+                                    untuk pengeluaran memberikan kejelasan informasi bagi pengguna.</li>
+                            </ul>
+                            <p class="text-white mb-0">
+                                Integrasi antara widget dasar layouting, pemisahan komponen statis/dinamis, serta
+                                penanganan debugging sintaks mampu menghasilkan antarmuka aplikasi yang responsif,
+                                terstruktur, dan stabil.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Konten Laporan -->
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row flex justify-content-end mb-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">About Website</h5>
+                    <p>
+                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (Deriel)
+                        dan daftar project yang pernah dikerjakan.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="../about.html" class="footer-link">About Me</a>
+                    <a href="../portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="../blog.html" class="footer-link">Blog</a>
+                    <a href="../contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">My Contact</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Padang, Indonesia</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> dariel@gmail.com</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/bilra_ch?igsh=em5pNzh0b2hoa3o3" class="social-icon"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://github.com/Bilra-Hkr" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+                            class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright-border">
+                <div class="text-md-center">
+                    <p class="mb-0">&copy;2025 Copyright : Deriel Chaerahman.</p>
+                    <p class="mb-0 small">Develop with Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-5x9p2MNl82nCPx+6sGr2nPv+4rgaQPc+e8plOFqLPlXkF2tWcseSVPyj9EWmFG+E"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
