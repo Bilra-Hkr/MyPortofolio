@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laporan Praktikum 4 Aplikasi Mobile - Deriel Chaerahman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Deriel C.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Header Laporan -->
+    <section class="py-4 mt-5">
+        <div class="container py-4">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-white">Home
+                            /</a></li>
+                    <li class="breadcrumb-item"><a href="../blog.html" class="text-decoration-none text-white">Blog
+                            /</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Laporan Praktikum</li>
+                </ol>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-5 fw-bold text-gradient mb-3">Laporan Praktikum 4 Aplikasi Mobile</h1>
+                    <p class="text-white fs-5">Navigasi &amp; Passing Data<br>(Navigator, Konsep Stack, dan Constructor)
+                    </p>
+                    <p class="text-white fs-7">Dibuat : Oktober 2026</p>
+                    <a href="https://github.com/Bilra-Hkr/DerielChaerahman_2411533007_P.Apk-Mobile/tree/praktikum-4"
+                        target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2">
+                        <i class="bi bi-github me-2"></i> Repository GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Header Laporan -->
+
+    <!-- Konten Laporan -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <!-- ==================== PENDAHULUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Pendahuluan</h4>
+                            <p class="text-white">
+                                Praktikum ini merupakan kelanjutan dari Praktikum 3, di mana aplikasi pencatatan
+                                transaksi keuangan yang sebelumnya hanya terdiri dari satu layar kini dikembangkan
+                                menjadi aplikasi multi-layar. Kemampuan berpindah antar halaman adalah fondasi dari
+                                hampir semua aplikasi mobile modern, dan Flutter menyediakan sistem navigasi berbasis
+                                tumpukan (<em>stack</em>) melalui widget <code>Navigator</code>.
+                            </p>
+                            <p class="text-white">
+                                Pada praktikum ini dibangun tiga layar utama: <code>DashboardScreen</code> sebagai
+                                halaman utama, <code>AddTransactionScreen</code> sebagai form pencatatan (dari
+                                Praktikum 3), dan <code>TransactionDetailScreen</code> sebagai halaman baru yang
+                                menampilkan rincian sebuah transaksi. Konsep utama yang dipelajari adalah cara
+                                mengirim data antar layar melalui <strong>Constructor</strong>, serta cara membuka
+                                (<code>Navigator.push</code>) dan menutup (<code>Navigator.pop</code>) halaman secara
+                                terprogram.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TUJUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Tujuan Praktikum</h4>
+                            <ul class="text-white mb-0">
+                                <li>Memahami konsep tumpukan (<em>stack</em>) navigasi pada Flutter.</li>
+                                <li>Menerapkan <code>Navigator.push</code> untuk berpindah ke layar baru.</li>
+                                <li>Menggunakan <code>Navigator.pop</code> untuk menutup layar dan kembali ke halaman
+                                    sebelumnya.</li>
+                                <li>Mengirim data bertipe <code>String</code> dan <code>int</code> antar layar
+                                    menggunakan <strong>Constructor</strong>.</li>
+                                <li>Menyusun proyek Flutter menjadi beberapa file terpisah sesuai arsitektur
+                                    aplikasi nyata.</li>
+                                <li>Menambahkan field input tanggal dengan <code>showDatePicker</code> sebagai tugas
+                                    praktikum.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANDASAN TEORI ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-book me-2"></i>Landasan Teori</h4>
+
+                            <div class="accordion accordion-flush custom-accordion" id="accordionTeori">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#teori-stack" aria-expanded="true">
+                                            Konsep Tumpukan (Stack) di Flutter
+                                        </button>
+                                    </h2>
+                                    <div id="teori-stack" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            Flutter mengelola halaman layaknya tumpukan kartu. Bayangkan halaman-halaman
+                                            sebagai kartu yang ditumpuk: halaman pertama ada di paling bawah, dan setiap
+                                            halaman baru diletakkan di atas tumpukan. <code>Navigator</code> adalah
+                                            widget
+                                            bawaan Flutter yang bertugas mengelola tumpukan ini.
+                                            <strong>Push</strong> berarti meletakkan kartu baru di atas tumpukan
+                                            (membuka halaman baru), sedangkan <strong>Pop</strong> berarti mengambil
+                                            kartu teratas dan membuangnya (menutup halaman, kembali ke halaman
+                                            sebelumnya).
+                                            Konsep ini membuat alur navigasi mudah diprediksi dan konsisten.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-push"
+                                            aria-expanded="false">
+                                            Navigator.push &amp; MaterialPageRoute
+                                        </button>
+                                    </h2>
+                                    <div id="teori-push" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>Navigator.push(context, route)</code> adalah perintah untuk membuka
+                                            halaman baru. Parameter <code>route</code> umumnya diisi dengan
+                                            <code>MaterialPageRoute</code>, yang menyediakan animasi transisi bawaan
+                                            Material Design (slide dari kanan). Di dalam <code>MaterialPageRoute</code>,
+                                            properti <code>builder</code> menerima fungsi yang mengembalikan widget
+                                            halaman tujuan. Saat <code>push</code> dipanggil, Flutter secara otomatis
+                                            menambahkan tombol "Panah Kiri" (back button) di <code>AppBar</code> halaman
+                                            baru.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-pop" aria-expanded="false">
+                                            Navigator.pop
+                                        </button>
+                                    </h2>
+                                    <div id="teori-pop" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>Navigator.pop(context)</code> menutup halaman yang sedang aktif dan
+                                            kembali ke halaman sebelumnya di tumpukan. Metode ini biasanya dipanggil
+                                            secara programatik, misalnya setelah pengguna menekan tombol "Simpan" dan
+                                            form berhasil divalidasi, sehingga aplikasi otomatis kembali ke Dashboard
+                                            tanpa pengguna harus menekan tombol back secara manual. Selain itu,
+                                            <code>Navigator.pop</code> juga bisa menyertakan nilai kembalian yang dapat
+                                            dibaca oleh halaman pemanggil.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-constructor"
+                                            aria-expanded="false">
+                                            Constructor &amp; Passing Data
+                                        </button>
+                                    </h2>
+                                    <div id="teori-constructor" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            Cara paling sederhana untuk mengirim data dari Halaman A ke Halaman B di
+                                            Flutter adalah melalui <strong>Constructor</strong>. Halaman B menyiapkan
+                                            variabel bertanda <code>final</code> sebagai penampung data, lalu
+                                            mendeklarasikan Constructor dengan parameter <code>required</code> untuk
+                                            mewajibkan data tersebut diisi saat halaman dipanggil. Ketika Halaman A
+                                            membuka Halaman B via <code>Navigator.push</code>, data disisipkan langsung
+                                            sebagai argumen konstruktor — mirip seperti menitipkan pesan di dalam
+                                            amplop yang diberikan saat berpindah ruangan.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-floatingbutton"
+                                            aria-expanded="false">
+                                            FloatingActionButton (FAB)
+                                        </button>
+                                    </h2>
+                                    <div id="teori-floatingbutton" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>FloatingActionButton</code> adalah tombol aksi utama berbentuk
+                                            lingkaran yang mengambang di atas konten layar, biasanya di pojok kanan
+                                            bawah. Dalam konteks aplikasi keuangan ini, FAB digunakan sebagai pintu
+                                            masuk utama untuk membuka form penambahan transaksi. FAB dikonfigurasi
+                                            langsung di properti <code>floatingActionButton</code> milik widget
+                                            <code>Scaffold</code>, dan <code>onPressed</code>-nya memanggil
+                                            <code>Navigator.push</code> untuk berpindah ke
+                                            <code>AddTransactionScreen</code>.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-listtile"
+                                            aria-expanded="false">
+                                            ListTile &amp; onTap
+                                        </button>
+                                    </h2>
+                                    <div id="teori-listtile" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>ListTile</code> adalah widget Flutter yang dirancang khusus untuk
+                                            menampilkan satu baris informasi dengan tata letak standar: ikon di kiri
+                                            (<code>leading</code>), judul dan subjudul di tengah, serta widget
+                                            pendukung di kanan (<code>trailing</code>). Properti <code>onTap</code>
+                                            memungkinkan seluruh area baris tersebut menjadi interaktif — saat
+                                            pengguna mengetuknya, fungsi yang ada di dalamnya dijalankan. Inilah yang
+                                            dimanfaatkan untuk memicu <code>Navigator.push</code> sekaligus mengirim
+                                            data spesifik baris yang diklik ke halaman detail.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== ALAT DAN BAHAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-tools me-2"></i>Alat dan Bahan</h4>
+                            <ul class="text-white mb-0">
+                                <li>Perangkat komputer atau laptop</li>
+                                <li>Jaringan internet</li>
+                                <li>Visual Studio Code IDE</li>
+                                <li>SDK Flutter</li>
+                                <li>Visual Studio (Emulator untuk run tampilan mobile)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANGKAH PENGERJAAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-4"><i class="bi bi-list-ol me-2"></i>Langkah Pengerjaan
+                            </h4>
+
+                            <p class="text-white mb-3">
+                                Proyek Praktikum 4 disusun menjadi <strong>4 file terpisah</strong> di dalam folder
+                                <code>lib/</code>, mensimulasikan arsitektur aplikasi nyata yang terstruktur dan mudah
+                                maintenance.
+                            </p>
+
+                            <!-- ===== POINT A: main.dart ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5">A. Entry Point &amp; Konfigurasi Tema
+                                (<code>main.dart</code>)</p>
+                            <p class="text-white mb-2">
+                                File <code>main.dart</code> berfungsi sebagai titik awal aplikasi.
+                                Perbedaan utama dari Praktikum 3 adalah tema warna diubah dari
+                                <code>Colors.deepPurple</code> menjadi <code>Colors.red</code> sesuai panduan modul,
+                                dan halaman pertama yang dimuat bukan form transaksi melainkan
+                                <code>DashboardScreen</code> sebagai dashboard utama aplikasi.
+                            </p>
+                            <div>
+                                <img src="img/prak4-a.png" alt="main.dart" width="550">
+                            </div>
+
+                            <!-- ===== POINT B: dashboard_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5 mt-5">B. Halaman Dashboard
+                                (<code>dashboard_screen.dart</code>)</p>
+                            <p class="text-white mb-2">
+                                Dashboard merupakan halaman utama yang ditampilkan saat aplikasi dibuka. Halaman ini
+                                menggabungkan elemen UI dari modul sebelumnya (kartu saldo dan daftar
+                                transaksi), dan kini seluruh elemennya sudah dihubungkan dengan sistem navigasi.
+                            </p>
+
+                            <p class="text-white fw-semibold mb-1">1. Struktur Scaffold &amp; FloatingActionButton</p>
+                            <p class="text-white mb-1">
+                                <code>Scaffold</code> pada Dashboard dengan tambahan properti
+                                <code>floatingActionButton</code> yang menampilkan tombol <code>+</code> merah di
+                                pojok kanan bawah. Saat ditekan, tombol akan memanggil <code>Navigator.push</code>
+                                yang membuka halaman baru <code>AddTransactionScreen</code> dimana pengguna dapat
+                                mencatat transaksi baru.
+                            </p>
+                            <div>
+                                <img src="img/prak4-b1.png" alt="Dashboard Scaffold & FAB" width="550">
+                            </div>
+
+                            <p class="text-white fw-semibold mb-1 mt-4">2. Widget Kartu Saldo</p>
+                            <p class="text-white mb-1">
+                                Method <code>_buildBalanceCard()</code> mengembalikan widget <code>Card</code> dengan
+                                warna <code>Colors.redAccent</code> yang menampilkan saldo utama pengguna. Widget ini
+                                bersifat statis dan datanya hardcoded sebagai demonstrasi tata letak.
+                            </p>
+                            <div>
+                                <img src="img/prak4-b2.png" alt="Balance Card" width="550">
+                            </div>
+
+                            <p class="text-white fw-semibold mb-1 mt-4">3. Daftar Transaksi dengan onTap (Passing Data)
+                            </p>
+                            <p class="text-white mb-1">
+                                Method <code>_buildTransactionList(BuildContext context)</code> menerima
+                                <code>context</code> sebagai parameter karena di dalamnya terdapat pemanggilan
+                                <code>Navigator.push</code>. Setiap <code>ListTile</code> dilengkapi properti
+                                <code>onTap</code> yang saat diketuk akan membuka <code>TransactionDetailScreen</code>
+                                sambil menyertakan data spesifik baris tersebut (judul, nominal, kategori, dan
+                                tanggal) melalui Constructor.
+                            </p>
+                            <div>
+                                <img src="img/prak4-b3.png" alt="Transaction List dengan onTap" width="550">
+                            </div>
+
+                            <!-- ===== POINT C: add_transaction_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5 mt-5">C. Form Tambah Transaksi dengan
+                                Navigator.pop
+                                (<code>add_transaction_screen.dart</code>)</p>
+                            <p class="text-white mb-2">
+                                File ini pengembangan dari Praktikum 3. Perubahan pada
+                                <code>ElevatedButton</code>, dimana setelah validasi berhasil dan
+                                <code>SnackBar</code> ditampilkan, kini ditambahkan
+                                <code>Navigator.pop(context)</code> agar form otomatis tertutup dan pengguna kembali
+                                ke Dashboard — tanpa harus menekan tombol back secara manual.
+                            </p>
+                            <div>
+                                <img src="img/prak4-c.png" alt="AddTransactionScreen dengan Navigator.pop" width="550">
+                            </div>
+
+                            <!-- ===== POINT D: detail_transaction_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5 mt-5">D. Halaman Detail Transaksi
+                                (<code>detail_transaction_screen.dart</code>)</p>
+                            <p class="text-white mb-2">
+                                Ini adalah halaman baru yang dibuat di Praktikum 4. Halaman ini
+                                menggunakan <code>StatelessWidget</code> karena tidak perlu menyimpan state apapun,
+                                tugasnya hanya menampilkan data yang diterima dari Dashboard.
+                            </p>
+
+                            <p class="text-white fw-semibold mb-1">1. Deklarasi Variabel &amp; Constructor</p>
+                            <p class="text-white mb-1">
+                                Empat variabel <code>final</code> dideklarasikan untuk menampung data yang dikirim:
+                                <code>title</code>, <code>amount</code>, <code>category</code>, dan
+                                <code>date</code>. Semua variabel ini wajib diisi saat halaman dipanggil,
+                                ditandai dengan kata kunci <code>required</code> pada Constructor. Jika salah satu
+                                tidak disertakan, Flutter akan langsung memberikan error saat kompilasi, bukan saat
+                                runtime, agar kode lebih aman.
+                            </p>
+                            <div>
+                                <img src="img/prak4-d1.png" alt="Deklarasi variabel dan constructor" width="550">
+                            </div>
+
+                            <p class="text-white fw-semibold mb-1 mt-4">2. Tampilan UI Detail</p>
+                            <p class="text-white mb-1">
+                                Layout halaman detail disusun secara vertikal menggunakan <code>Column</code>.
+                                Terdapat ikon <code>receipt_long</code> besar di atas sebagai penanda visual, diikuti
+                                judul dan nominal dalam ukuran font besar, lalu garis pemisah
+                                (<code>Divider</code>), dan baris-baris detail (kategori, tanggal, status)
+                                yang dirender oleh method pembantu <code>_buildDetailRow()</code> agar kode
+                                tetap rapi dan tidak berulang.
+                            </p>
+                            <div>
+                                <img src="img/prak4-d2.png" alt="UI Detail Transaksi" width="550">
+                            </div>
+
+                            <!-- ===== POINT E: Tugas ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5 mt-5">E. Tugas Praktikum – Input Tanggal
+                                (<code>showDatePicker</code>)</p>
+                            <p class="text-white mb-2">
+                                Tugas praktikum adalah menambahkan field input tanggal di
+                                <code>AddTransactionScreen</code> sebelum tombol Simpan, menggunakan
+                                <code>showDatePicker</code> yang sudah dipelajari di Praktikum 3.
+                            </p>
+
+                            <p class="text-white fw-semibold mb-1">1. Deklarasi Controller &amp; Fungsi
+                                <code>_selectDate()</code>
+                            </p>
+                            <p class="text-white mb-1">
+                                Tambahkan <code>TextEditingController</code> baru bernama
+                                <code>_dateController</code> dan jangan lupa memanggil <code>.dispose()</code>-nya.
+                                Fungsi <code>_selectDate()</code> bersifat <code>async</code> dan memanggil
+                                <code>showDatePicker</code> dengan batasan tahun 2000–2100. Tanggal yang dipilih
+                                pengguna diformat menjadi <code>DD/MM/YYYY</code> menggunakan
+                                <code>padLeft(2, '0')</code> agar angka hari dan bulan selalu dua digit.
+                            </p>
+                            <div>
+                                <img src="img/prak4-e1.png" alt="Fungsi _selectDate" width="550">
+                            </div>
+
+                            <p class="text-white fw-semibold mb-1 mt-4">2. Field Tanggal <code>readOnly</code></p>
+                            <p class="text-white mb-1">
+                                <code>TextFormField</code> untuk tanggal dikonfigurasi dengan
+                                <code>readOnly: true</code> agar pengguna tidak dapat mengetik langsung —
+                                input hanya boleh berasal dari dialog kalender. Properti <code>onTap</code>
+                                dan <code>suffixIcon</code> keduanya memanggil <code>_selectDate(context)</code>,
+                                memberi dua cara berbeda untuk membuka kalender. Validator memastikan field ini
+                                tidak bisa dikosongkan saat form dikirim.
+                            </p>
+                            <div>
+                                <img src="img/prak4-e2.png" alt="Field Tanggal readOnly" width="550">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ==================== TAMPILAN AKHIR ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-phone me-2"></i>Tampilan Akhir Aplikasi
+                            </h4>
+                            <p class="text-white">
+                                Aplikasi Praktikum 4 terdiri dari tiga layar yang terhubung satu sama lain:
+                            </p>
+                            <ul class="text-white mb-3">
+                                <li><strong>Dashboard</strong> — Menampilkan kartu saldo dan daftar transaksi yang
+                                    bisa diklik.</li>
+                                <li><strong>Form Tambah Transaksi</strong> — Dibuka via FAB, kembali otomatis ke
+                                    Dashboard setelah Simpan.</li>
+                                <li><strong>Detail Transaksi</strong> — Dibuka saat baris di daftar diklik,
+                                    menampilkan data lengkap transaksi yang dikirim via Constructor.</li>
+                            </ul>
+                            <div class="text-center">
+                                <img src="img/prak4-demo1.png" alt="Tampilan Akhir Praktikum 4" width="350">
+                                <img src="img/prak4-demo2.png" alt="Tampilan Akhir Praktikum 4" width="350">
+                                <img src="img/prak4-demo3.png" alt="Tampilan Akhir Praktikum 4" width="350">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== KESIMPULAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Kesimpulan</h4>
+                            <p class="text-white">
+                                Melalui praktikum 4 ini berhasil mengembangkan dari awalnya aplikasi satu halaman dari
+                                Praktikum 3
+                                menjadi
+                                aplikasi multi-halaman yang terstruktur, dengan navigasi dan perpindahan data antar
+                                halaman
+                                yang berfungsi dengan baik.
+                            </p>
+                            <ul class="text-white">
+                                <li><strong>Navigator.push &amp; MaterialPageRoute:</strong> Membuka halaman baru
+                                    dengan animasi transisi bawaan Material Design dan secara otomatis menambahkan
+                                    tombol kembali di AppBar.</li>
+                                <li><strong>Navigator.pop:</strong> Menutup halaman secara otomatis setelah aksi
+                                    selesai, sehingga alur pengguna terasa lebih alami tanpa harus menekan tombol
+                                    back secara manual.</li>
+                                <li><strong>Constructor &amp; Passing Data:</strong> Cara paling ringkas dan aman
+                                    untuk mengirim data antar layar. Variabel <code>final</code> dan kata kunci
+                                    <code>required</code> menjamin data selalu tersedia saat halaman dirender.
+                                </li>
+                                <li><strong>Pemisahan File:</strong> Memecah kode ke dalam beberapa file
+                                    (<code>main.dart</code>, <code>dashboard_screen.dart</code>,
+                                    <code>add_transaction_screen.dart</code>,
+                                    <code>transaction_detail_screen.dart</code>)
+                                    membuat proyek jauh lebih mudah dibaca, dipelihara, dan dikembangkan.
+                                </li>
+                                <li><strong>showDatePicker (Tugas):</strong> Mengintegrasikan kembali pola
+                                    <code>async/await</code> dari Praktikum 3 sebagai field tanggal pada form,
+                                    pelengkap input data transaksi yang nyata.
+                                </li>
+                            </ul>
+                            <p class="text-white mb-0">
+                                Dengan menguasai navigasi dan passing data, sebagai fondasi untuk membangun aplikasi
+                                Flutter yang kompleks dan berlapis sudah terbentuk. Prinsip yang sama berlaku
+                                untuk aplikasi nyata dengan banyak halaman.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Konten Laporan -->
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row flex justify-content-end mb-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">About Website</h5>
+                    <p>
+                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (Deriel)
+                        dan daftar project yang pernah dikerjakan.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="../about.html" class="footer-link">About Me</a>
+                    <a href="../portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="../blog.html" class="footer-link">Blog</a>
+                    <a href="../contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">My Contact</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Padang, Indonesia</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> dariel@gmail.com</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/bilra_ch?igsh=em5pNzh0b2hoa3o3" class="social-icon"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://github.com/Bilra-Hkr" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+                            class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright-border">
+                <div class="text-md-center">
+                    <p class="mb-0">&copy;2025 Copyright : Deriel Chaerahman.</p>
+                    <p class="mb-0 small">Develop with Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-5x9p2MNl82nCPx+6sGr2nPv+4rgaQPc+e8plOFqLPlXkF2tWcseSVPyj9EWmFG+E"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
