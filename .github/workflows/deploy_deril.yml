@@ -1,4 +1,4 @@
-name: Deploy to Subdomain
+name: Deploy to Subdomain via SFTP
 
 on:
   push:
@@ -14,18 +14,13 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 📂 Sync files via SFTP
+        uses: easingthemes/ssh-deploy@v5.1.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
-          server-dir: ./deril/
-          dangerous-clean-slate: false
-          exclude: |
-            .git/**
-            .github/**
-            node_modules/**
-            vendor/**
+          SSH_PRIVATE_KEY: "" # Biarkan kosong jika menggunakan password
+          REMOTE_HOST: ${{ secrets.FTP_SERVER }}
+          REMOTE_USER: ${{ secrets.FTP_USERNAME }}
+          REMOTE_PORT: "22"
+          PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          TARGET: "/public_html/deril/"
+          EXCLUDE: "/.git/, /.github/, /node_modules/, /vendor/"
