@@ -13,13 +13,12 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: 📂 Sync files via SFTP
-        uses: wlix/sftp-deploy-action@v1.2.4
+      - name: 📂 Sync files via SFTP (SCP)
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          port: 22
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          sftp_only: true
-          remote_dir: /public_html/deril/
-          exclude: .git/*,.github/*,node_modules/*,vendor/*
+          port: 22
+          source: "."
+          target: "/public_html/deril/"
