@@ -25,7 +25,7 @@ jobs:
           server-dir: ./deril/
           dangerous-clean-slate: false
           exclude: |
-            **/.git**
-            **/.github**
-            **/node_modules/**
-            **/vendor/**
+            .git/**
+            .github/**
+            node_modules/**
+            vendor/**
