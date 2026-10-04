@@ -9,7 +9,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
@@ -20,13 +19,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
           server-dir: ./deril/
-          dangerous-clean-slate: false
-          force-deploy: true
-          exclude: |
-            **/.git**
-            **/.github**
-            **/node_modules/**
-            **/vendor/**
+          dangerous-clean-slate: true
