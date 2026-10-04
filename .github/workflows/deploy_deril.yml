@@ -19,20 +19,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          port: 21
           server-dir: ./deril/
-          dangerous-clean-slate: false
-          exclude: |
-            .git/**
-            .github/**
-            .laravel/**
-            node_modules/**
-            vendor/**
-            img/**
-            **/*.png
-            **/*.jpg
-            **/*.jpeg
-            **/*.gif
-            **/*.svg
-            **/*.ico
+          dangerous-clean-slate: true
