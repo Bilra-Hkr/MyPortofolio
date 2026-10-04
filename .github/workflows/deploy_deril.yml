@@ -1,4 +1,4 @@
-name: Deploy to Subdomain via SFTP
+name: Deploy to Subdomain
 
 on:
   push:
@@ -13,12 +13,19 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
 
-      - name: 📂 Sync files via SFTP (SCP)
-        uses: appleboy/scp-action@v0.1.7
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          host: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 22
-          source: "."
-          target: "/public_html/deril/"
+          protocol: ftps
+          port: 21
+          server-dir: ./deril/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git/**
+            **/.github/**
+            **/node_modules/**
+            **/vendor/**
+            **/flutter/img/**
