@@ -26,6 +26,7 @@ jobs:
           exclude: |
             .git/**
             .github/**
+            .laravel/**
             node_modules/**
             vendor/**
             img/**
