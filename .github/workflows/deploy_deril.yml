@@ -20,10 +20,10 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: sftp
-          port: ${{ secrets.PORT }}
+          protocol: ftps
+          port: 21
           server-dir: ./deril/
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
           force-deploy: true
           exclude: |
             **/.git**
