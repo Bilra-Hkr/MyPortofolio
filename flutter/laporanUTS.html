@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laporan Akhir - Aplikasi Expense Tracker - Deriel Chaerahman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- ===== Style tambahan untuk Code Window ===== -->
+    <style>
+        .code-window {
+            background-color: #1e1e2e;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0 1.5rem 0;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        .code-window-header {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 14px;
+            background-color: #181825;
+        }
+
+        .code-window-header .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot.red {
+            background-color: #ff5f56;
+        }
+
+        .dot.yellow {
+            background-color: #ffbd2e;
+        }
+
+        .dot.green {
+            background-color: #27c93f;
+        }
+
+        .code-window-filename {
+            margin-left: 10px;
+            color: #8a8a9c;
+            font-size: 0.8rem;
+            font-family: "Consolas", "Courier New", monospace;
+        }
+
+        .code-window pre {
+            margin: 0;
+            padding: 16px 18px;
+            overflow-x: auto;
+        }
+
+        .code-window code {
+            font-family: "Consolas", "Fira Code", "Courier New", monospace;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            white-space: pre;
+            color: #cdd6f4;
+        }
+
+        .tok-kw {
+            color: #cba6f7;
+        }
+
+        .tok-type {
+            color: #89dceb;
+        }
+
+        .tok-str {
+            color: #a6e3a1;
+        }
+
+        .tok-fn {
+            color: #f9e2af;
+        }
+
+        .tok-prop {
+            color: #89b4fa;
+        }
+
+        .tok-com {
+            color: #6c7086;
+            font-style: italic;
+        }
+
+        .tok-num {
+            color: #fab387;
+        }
+
+        .checklist-card {
+            border-left: 4px solid #ff5f56;
+        }
+
+        .placeholder-box {
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            color: #ffffffaa;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Deriel C.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Header Laporan -->
+    <section class="py-4 mt-5">
+        <div class="container py-4">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-white">Home
+                            /</a></li>
+                    <li class="breadcrumb-item"><a href="../blog.html" class="text-decoration-none text-white">Blog
+                            /</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Laporan Akhir</li>
+                </ol>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-5 fw-bold text-gradient mb-3">Laporan Akhir - Aplikasi Expense Tracker</h1>
+                    <p class="text-white fs-5">Penggabungan Praktikum 1-5<br>(Local Storage, Autentikasi, Video &amp;
+                        APK)
+                    </p>
+                    <p class="text-white fs-7">Dibuat : Oktober 2026</p>
+                    <a href="https://github.com/Bilra-Hkr/DerielChaerahman_2411533007_P.Apk-Mobile/tree/praktikum-5"
+                        target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2">
+                        <i class="bi bi-github me-2"></i> Repository GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Header Laporan -->
+
+    <!-- Konten Laporan -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+
+                    <!-- ==================== PENDAHULUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-info-circle me-2"></i>Pendahuluan</h4>
+                            <p class="text-white">
+                                Tugas praktikum ini menggabungkan seluruh hasil Praktikum 1 sampai 5 menjadi
+                                satu aplikasi utuh bernama <strong>Expense Tracker</strong>. Pada praktikum
+                                sebelumnya, aplikasi masih menggunakan data statis (hardcoded) dan belum memiliki
+                                sistem autentikasi. Pada tahap akhir ini, aplikasi disempurnakan dengan 4
+                                penambahan utama:
+                            </p>
+                            <ul class="text-white mb-0">
+                                <li><strong>Local storage</strong> menggunakan <strong>SQLite</strong> (paket
+                                    <code>sqflite</code>), sehingga data pengguna dan transaksi tidak hilang saat
+                                    aplikasi ditutup.
+                                </li>
+                                <li><strong>Form Login dan Register</strong> yang terhubung langsung ke database
+                                    lokal, lengkap dengan validasi dan hashing password.</li>
+                                <li><strong>Video penjelasan aplikasi</strong> yang mendemonstrasikan alur
+                                    penggunaan dari awal (register) hingga pencatatan transaksi.</li>
+                                <li><strong>Build APK</strong> agar aplikasi dapat dipasang dan diuji langsung di
+                                    perangkat Android.</li>
+                            </ul>
+                            <p class="text-white mt-3 mb-0">
+                                Desain UI/UX dari praktikum sebelumnya (dashboard, riwayat transaksi, detail
+                                transaksi, dan profil) <strong>tetap dipertahankan</strong>. Yang berubah secara
+                                visual hanya halaman Login dan Register yang kini dirancang sebagai gerbang masuk
+                                aplikasi.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== STRUKTUR PROJECT ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-folder2-open me-2"></i>Struktur
+                                Project</h4>
+                            <p class="text-white">
+                                Struktur folder <code>project_uts</code> dirapikan menjadi tiga lapisan:
+                                <code>models</code>
+                                (struktur data), <code>screens</code> (tampilan), dan <code>services</code> (logika
+                                akses database), ditambah dependensi autentikasi &amp; database pada
+                                <code>pubspec.yaml</code>.
+                            </p>
+
+                            <p class="text-white fw-semibold mb-1">Hirarki Folder <code>project_uts</code></p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">file tree</span>
+                                </div>
+                                <pre><code>project_uts/
+├── models/
+│   ├── app_user.dart            <span class="tok-com"># struktur data akun pengguna</span>
+│   └── transaction_entry.dart   <span class="tok-com"># struktur data satu transaksi</span>
+├── screens/
+│   ├── login_screen.dart        <span class="tok-com"># form login (baru)</span>
+│   ├── register_screen.dart     <span class="tok-com"># form register (baru)</span>
+│   ├── main_screen.dart         <span class="tok-com"># shell navigasi (bottom nav)</span>
+│   ├── dashboard_screen.dart    <span class="tok-com"># ringkasan saldo &amp; transaksi</span>
+│   ├── add_transaction_screen.dart
+│   ├── history_screen.dart      <span class="tok-com"># daftar riwayat transaksi</span>
+│   ├── detail_transaction_screen.dart
+│   └── profile_screen.dart
+├── services/
+│   └── app_database.dart        <span class="tok-com"># koneksi &amp; query SQLite (singleton)</span>
+└── main.dart                    <span class="tok-com"># entry point &amp; pengecekan sesi login</span></code></pre>
+                            </div>
+                            <p class="text-white mb-4">
+                                Folder <code>models</code> berisi representasi data, <code>screens</code> berisi
+                                seluruh tampilan (termasuk dua halaman baru: Login &amp; Register), dan
+                                <code>services</code> berisi satu-satunya titik akses ke database SQLite agar
+                                logika penyimpanan data tidak bercampur dengan kode tampilan.
+                            </p>
+
+                            <p class="text-white fw-semibold mb-1">Dependensi (<code>pubspec.yaml</code>)</p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">pubspec.yaml</span>
+                                </div>
+                                <pre><code><span class="tok-prop">dependencies</span>:
+  <span class="tok-prop">flutter</span>:
+    <span class="tok-prop">sdk</span>: <span class="tok-str">flutter</span>
+  <span class="tok-prop">cupertino_icons</span>: <span class="tok-num">^1.0.8</span>
+  <span class="tok-prop">sqflite</span>: <span class="tok-num">^2.4.5</span>
+  <span class="tok-prop">sqflite_common_ffi</span>: <span class="tok-num">^2.4.5</span>
+  <span class="tok-prop">path</span>: <span class="tok-num">^1.9.1</span>
+  <span class="tok-prop">crypto</span>: <span class="tok-num">^3.0.7</span></code></pre>
+                            </div>
+                            <p class="text-white mb-0">
+                                <code>sqflite</code> digunakan sebagai local storage utama, <code>crypto</code>
+                                untuk hashing password (SHA-256 + salt), dan <code>sqflite_common_ffi</code>
+                                sebagai dukungan database saat aplikasi diuji di Windows/Linux sebelum di-build
+                                menjadi APK.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== 1. LOCAL STORAGE ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-database-fill-lock me-2"></i>1. Local
+                                Storage dengan SQLite</h4>
+                            <p class="text-white">
+                                Seluruh akses database dipusatkan pada satu <em>service</em>,
+                                <code>app_database.dart</code>, menggunakan pola <strong>Singleton</strong> agar
+                                hanya ada satu koneksi database aktif selama aplikasi berjalan. Dua tabel dibuat:
+                                <code>users</code> untuk akun pengguna dan <code>transactions</code> untuk data
+                                transaksi, yang saling terhubung melalui <code>user_id</code> sebagai foreign key.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">services/app_database.dart</span>
+                                </div>
+                                <pre><code><span class="tok-kw">class</span> <span class="tok-type">AppDatabase</span> {
+  <span class="tok-type">AppDatabase</span>._();
+  <span class="tok-kw">static final</span> <span class="tok-type">AppDatabase</span> instance = <span class="tok-type">AppDatabase</span>._();
+  <span class="tok-type">Database</span>? _database;
+
+  <span class="tok-type">Future</span>&lt;<span class="tok-type">Database</span>&gt; <span class="tok-kw">get</span> <span class="tok-fn">database</span> <span class="tok-kw">async</span> {
+    <span class="tok-kw">if</span> (_database != <span class="tok-kw">null</span>) <span class="tok-kw">return</span> _database!;
+
+    <span class="tok-kw">final</span> databasePath = <span class="tok-prop">path</span>.<span class="tok-fn">join</span>(
+      <span class="tok-kw">await</span> <span class="tok-fn">getDatabasesPath</span>(),
+      <span class="tok-str">'praktikum5_expense_tracker.db'</span>,
+    );
+    _database = <span class="tok-kw">await</span> <span class="tok-fn">openDatabase</span>(
+      databasePath,
+      version: <span class="tok-num">2</span>,
+      onCreate: (db, version) <span class="tok-kw">async</span> {
+        <span class="tok-kw">await</span> db.<span class="tok-fn">execute</span>(<span class="tok-str">'''
+          CREATE TABLE users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            username TEXT NOT NULL COLLATE NOCASE UNIQUE,
+            email TEXT NOT NULL COLLATE NOCASE UNIQUE,
+            password_salt TEXT NOT NULL,
+            password_hash TEXT NOT NULL
+          )
+        '''</span>);
+        <span class="tok-kw">await</span> db.<span class="tok-fn">execute</span>(<span class="tok-str">'''
+          CREATE TABLE transactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL,
+            title TEXT NOT NULL,
+            amount INTEGER NOT NULL CHECK (amount > 0),
+            category TEXT NOT NULL,
+            date TEXT NOT NULL,
+            is_income INTEGER NOT NULL CHECK (is_income IN (0, 1)),
+            FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+          )
+        '''</span>);
+      },
+    );
+    <span class="tok-kw">return</span> _database!;
+  }
+}</code></pre>
+                            </div>
+                            <p class="text-white mb-0">
+                                Dengan arsitektur ini, setiap transaksi yang dicatat pengguna
+                                (<code>addTransaction</code>)
+                                dan setiap akun yang didaftarkan (<code>register</code>) langsung tersimpan secara
+                                permanen di penyimpanan lokal perangkat, bukan lagi di memori sementara (list
+                                statis seperti pada Praktikum 1-4).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== 2. LOGIN & REGISTER ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-person-lock me-2"></i>2. Form Login
+                                dan Register</h4>
+                            <p class="text-white">
+                                Menambahkan dua halaman baru sebagai pintu masuk aplikasi:
+                                <code>login_screen.dart</code> dan <code>register_screen.dart</code>. Password
+                                pengguna <strong>tidak disimpan dalam bentuk teks biasa</strong>, melainkan
+                                diamankan dengan <em>salting</em> acak lalu di-hash menggunakan SHA-256 sebelum
+                                disimpan ke tabel <code>users</code>.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">services/app_database.dart (register &amp;
+                                        login)</span>
+                                </div>
+                                <pre><code><span class="tok-type">Future</span>&lt;<span class="tok-type">AppUser</span>&gt; <span class="tok-fn">register</span>({
+  <span class="tok-kw">required</span> <span class="tok-type">String</span> name,
+  <span class="tok-kw">required</span> <span class="tok-type">String</span> email,
+  <span class="tok-kw">required</span> <span class="tok-type">String</span> username,
+  <span class="tok-kw">required</span> <span class="tok-type">String</span> password,
+}) <span class="tok-kw">async</span> {
+  <span class="tok-kw">final</span> db = <span class="tok-kw">await</span> database;
+  <span class="tok-com">// Cek email &amp; username sudah dipakai atau belum</span>
+  <span class="tok-com">// ...</span>
+  <span class="tok-kw">final</span> salt = _newSalt();
+  <span class="tok-kw">final</span> id = <span class="tok-kw">await</span> db.<span class="tok-fn">insert</span>(<span class="tok-str">'users'</span>, {
+    <span class="tok-str">'name'</span>: name.<span class="tok-fn">trim</span>(),
+    <span class="tok-str">'username'</span>: username,
+    <span class="tok-str">'email'</span>: email.<span class="tok-fn">trim</span>().<span class="tok-fn">toLowerCase</span>(),
+    <span class="tok-str">'password_salt'</span>: salt,
+    <span class="tok-str">'password_hash'</span>: _hashPassword(salt, password),
+  });
+  <span class="tok-kw">return</span> <span class="tok-type">AppUser</span>(id: id, name: name, username: username, email: email);
+}
+
+<span class="tok-type">Future</span>&lt;<span class="tok-type">AppUser</span>?&gt; <span class="tok-fn">login</span>({
+  <span class="tok-kw">required</span> <span class="tok-type">String</span> identifier,
+  <span class="tok-kw">required</span> <span class="tok-type">String</span> password,
+}) <span class="tok-kw">async</span> {
+  <span class="tok-kw">final</span> db = <span class="tok-kw">await</span> database;
+  <span class="tok-kw">final</span> rows = <span class="tok-kw">await</span> db.<span class="tok-fn">query</span>(
+    <span class="tok-str">'users'</span>,
+    where: <span class="tok-str">'email = ? OR username = ?'</span>,
+    whereArgs: [identifier.<span class="tok-fn">toLowerCase</span>(), identifier],
+  );
+  <span class="tok-kw">if</span> (rows.<span class="tok-prop">isEmpty</span>) <span class="tok-kw">return</span> <span class="tok-kw">null</span>;
+  <span class="tok-kw">final</span> row = rows.<span class="tok-prop">first</span>;
+  <span class="tok-kw">if</span> (_hashPassword(row[<span class="tok-str">'password_salt'</span>]! <span class="tok-kw">as</span> <span class="tok-type">String</span>, password)
+      != row[<span class="tok-str">'password_hash'</span>]) <span class="tok-kw">return</span> <span class="tok-kw">null</span>;
+  <span class="tok-kw">return</span> <span class="tok-type">AppUser</span>.<span class="tok-fn">fromRow</span>(row);
+}</code></pre>
+                            </div>
+
+                            <p class="text-white fw-semibold mb-1 mt-4">Halaman Login (<code>login_screen.dart</code>)
+                            </p>
+                            <p class="text-white mb-1">
+                                Pengguna login dengan email <em>atau</em> username. Jika kombinasi identitas dan
+                                password cocok dengan data pada SQLite, pengguna diarahkan masuk ke
+                                <code>MainScreen</code>; jika tidak, ditampilkan pesan kesalahan melalui
+                                <code>SnackBar</code>.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">screens/login_screen.dart</span>
+                                </div>
+                                <pre><code><span class="tok-type">Future</span>&lt;<span class="tok-type">void</span>&gt; <span class="tok-fn">_login</span>() <span class="tok-kw">async</span> {
+  <span class="tok-kw">if</span> (!_formKey.currentState!.<span class="tok-fn">validate</span>()) <span class="tok-kw">return</span>;
+  <span class="tok-fn">setState</span>(() =&gt; _isLoading = <span class="tok-kw">true</span>);
+  <span class="tok-kw">try</span> {
+    <span class="tok-kw">final</span> user = <span class="tok-kw">await</span> <span class="tok-type">AppDatabase</span>.<span class="tok-prop">instance</span>.<span class="tok-fn">login</span>(
+      identifier: _identifierController.<span class="tok-prop">text</span>,
+      password: _passwordController.<span class="tok-prop">text</span>,
+    );
+    <span class="tok-kw">if</span> (!mounted) <span class="tok-kw">return</span>;
+    <span class="tok-kw">if</span> (user == <span class="tok-kw">null</span>) {
+      <span class="tok-prop">ScaffoldMessenger</span>.<span class="tok-fn">of</span>(context).<span class="tok-fn">showSnackBar</span>(
+        <span class="tok-kw">const</span> <span class="tok-type">SnackBar</span>(content: <span class="tok-type">Text</span>(<span class="tok-str">'Email/username atau password tidak sesuai.'</span>)),
+      );
+    } <span class="tok-kw">else</span> {
+      widget.onLogin(user); <span class="tok-com">// kirim data user ke _AppStartupScreen</span>
+    }
+  } <span class="tok-kw">finally</span> {
+    <span class="tok-kw">if</span> (mounted) <span class="tok-fn">setState</span>(() =&gt; _isLoading = <span class="tok-kw">false</span>);
+  }
+}</code></pre>
+                            </div>
+
+                            <p class="text-white fw-semibold mb-1 mt-4">Halaman Register
+                                (<code>register_screen.dart</code>)</p>
+                            <p class="text-white mb-1">
+                                Form register memvalidasi nama, username (minimal 3 karakter), email, serta
+                                password (minimal 8 karakter dan harus cocok dengan konfirmasi password) sebelum
+                                data disimpan ke SQLite melalui <code>AppDatabase.instance.register()</code>.
+                                Setelah berhasil, pengguna dikembalikan ke halaman Login dengan email yang sudah
+                                terisi otomatis.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">screens/register_screen.dart</span>
+                                </div>
+                                <pre><code><span class="tok-type">Future</span>&lt;<span class="tok-type">void</span>&gt; <span class="tok-fn">_register</span>() <span class="tok-kw">async</span> {
+  <span class="tok-kw">if</span> (!_formKey.currentState!.<span class="tok-fn">validate</span>()) <span class="tok-kw">return</span>;
+  <span class="tok-fn">setState</span>(() =&gt; _isLoading = <span class="tok-kw">true</span>);
+  <span class="tok-kw">try</span> {
+    <span class="tok-kw">await</span> <span class="tok-type">AppDatabase</span>.<span class="tok-prop">instance</span>.<span class="tok-fn">register</span>(
+      name: _nameController.<span class="tok-prop">text</span>,
+      username: _usernameController.<span class="tok-prop">text</span>,
+      email: _emailController.<span class="tok-prop">text</span>,
+      password: _passwordController.<span class="tok-prop">text</span>,
+    );
+    <span class="tok-kw">if</span> (!mounted) <span class="tok-kw">return</span>;
+    <span class="tok-prop">Navigator</span>.<span class="tok-fn">pop</span>(context, _emailController.<span class="tok-prop">text</span>.<span class="tok-fn">trim</span>().<span class="tok-fn">toLowerCase</span>());
+  } <span class="tok-kw">on</span> <span class="tok-type">AuthException</span> <span class="tok-kw">catch</span> (error) {
+    <span class="tok-com">// Email/username sudah terdaftar</span>
+    <span class="tok-prop">ScaffoldMessenger</span>.<span class="tok-fn">of</span>(context).<span class="tok-fn">showSnackBar</span>(
+      <span class="tok-type">SnackBar</span>(content: <span class="tok-type">Text</span>(error.message)),
+    );
+  } <span class="tok-kw">finally</span> {
+    <span class="tok-kw">if</span> (mounted) <span class="tok-fn">setState</span>(() =&gt; _isLoading = <span class="tok-kw">false</span>);
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== 3. ALUR STARTUP ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-diagram-3 me-2"></i>3. Alur Startup
+                                Aplikasi (<code>main.dart</code>)</h4>
+                            <p class="text-white">
+                                <code>_AppStartupScreen</code> memastikan koneksi SQLite siap sebelum menampilkan
+                                antarmuka apa pun. Jika database belum siap, ditampilkan indikator loading; jika
+                                gagal dibuka, ditampilkan halaman error dengan tombol "Coba lagi". Setelah
+                                database siap dan belum ada pengguna yang login (<code>_user == null</code>),
+                                aplikasi menampilkan <code>LoginScreen</code>; begitu login berhasil, data
+                                <code>AppUser</code> disimpan di state dan aplikasi berpindah ke
+                                <code>MainScreen</code> tanpa kehilangan histori navigasi dari Praktikum 5.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">main.dart</span>
+                                </div>
+                                <pre><code><span class="tok-kw">final</span> user = _user;
+<span class="tok-kw">if</span> (user == <span class="tok-kw">null</span>) {
+  <span class="tok-kw">return</span> <span class="tok-type">LoginScreen</span>(
+    onLogin: (loggedInUser) {
+      <span class="tok-fn">setState</span>(() =&gt; _user = loggedInUser);
+    },
+  );
+}
+<span class="tok-kw">return</span> <span class="tok-type">MainScreen</span>(
+  user: user,
+  onLogout: () =&gt; <span class="tok-fn">setState</span>(() =&gt; _user = <span class="tok-kw">null</span>),
+);</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== CHECKLIST KETENTUAN ==================== -->
+                    <div class="card contact-info-card checklist-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-check2-square me-2"></i>Pemenuhan
+                                Ketentuan Tugas</h4>
+                            <ul class="text-white mb-0">
+                                <li><i class="bi bi-check-circle-fill text-success me-1"></i> Local storage dengan
+                                    SQLite (<code>sqflite</code>) menggantikan data statis Praktikum 1-5.</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-1"></i> Form Login &amp;
+                                    Register tersedia, data akun tersimpan permanen di SQLite.</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-1"></i> Video penjelasan
+                                    aplikasi (lihat di bawah).</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-1"></i> File APK hasil
+                                    <code>flutter build apk</code> (lihat di bawah).
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-1"></i> Desain UI/UX halaman
+                                    Dashboard, Riwayat, Detail Transaksi, dan Profil dipertahankan seperti
+                                    Praktikum 5.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TAMPILAN AKHIR ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-phone me-2"></i>Tampilan Akhir
+                                Aplikasi</h4>
+                            <p class="text-white">
+                                Aplikasi akhir terdiri dari tujuh layar: Login, Register, Dashboard, Catat
+                                Transaksi, Riwayat Transaksi, Detail Transaksi, dan Profil.
+                            </p>
+                            <!-- Ganti src di bawah dengan screenshot kamu sendiri -->
+                            <div class="text-center">
+                                <img src="img/final-login.png" alt="Halaman Login" width="260" class="m-2">
+                                <img src="img/final-register.png" alt="Halaman Register" width="260" class="m-2">
+                                <img src="img/final-dashboard.png" alt="Halaman Dashboard" width="260" class="m-2">
+                                <img src="img/final-catat.png" alt="Halaman Catat Transaksi" width="260" class="m-2">
+                                <img src="img/final-riwayat.png" alt="Halaman Riwayat Transaksi" width="260"
+                                    class="m-2">
+                                <img src="img/final-detail.png" alt="Halaman Detail Transaksi" width="260" class="m-2">
+                                <img src="img/final-profile.png" alt="Halaman Profile" width="260" class="m-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== VIDEO PENJELASAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-camera-reels me-2"></i>Video
+                                Penjelasan Aplikasi</h4>
+                            <p class="text-white">
+                                Video penjelasan kode program dan demo aplikasi: mulai dari register akun
+                                baru, login, mencatat transaksi, melihat riwayat dan detail transaksi, hingga
+                                logout.
+                            </p>
+                            <div class="ratio ratio-16x9 mb-2">
+                                <!-- TODO: ganti VIDEO_ID_DISINI dengan ID video YouTube kamu -->
+                                <iframe src="https://www.youtube.com/embed/VIDEO_ID_DISINI"
+                                    title="Video Penjelasan Expense Tracker" allowfullscreen></iframe>
+                            </div>
+                            <p class="text-white small mb-0">
+                                <i class="bi bi-link-45deg me-1"></i>Link alternatif:
+                                <a href="https://youtu.be/BGzwJl2lLKY" class="text-white text-decoration-underline"
+                                    target="_blank">https://youtu.be/BGzwJl2lLKY</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== DOWNLOAD APK ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-android2 me-2"></i>File APK</h4>
+                            <p class="text-white">
+                                Aplikasi telah di-build menjadi file APK menggunakan perintah:
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">terminal</span>
+                                </div>
+                                <pre><code>flutter build apk --release</code></pre>
+                            </div>
+                            <p class="text-white">
+                                APK hasil build diupload ke github tab realese pada link repo github yg sama dengan
+                                project ini.
+                            </p>
+                            <div class="placeholder-box">
+                                <a href="https://github.com/Bilra-Hkr/DerielChaerahman_2411533007_P.Apk-Mobile/releases/download/v1.0.0/app-release.apk"
+                                    class="btn btn-outline-light rounded-pill px-4 py-2" target="_blank">
+                                    <i class="bi bi-download me-2"></i>Download APK (v1.0.0 - 53.2 MB)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== KESIMPULAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Kesimpulan</h4>
+                            <p class="text-white">
+                                Tahap akhir ini melengkapi aplikasi <em>Expense Tracker</em> dari sekadar prototipe
+                                UI dengan data statis (Praktikum 1-5) menjadi aplikasi fungsional yang siap
+                                digunakan sehari-hari.
+                            </p>
+                            <ul class="text-white">
+                                <li><strong>Local storage (SQLite):</strong> Data pengguna dan transaksi kini
+                                    bersifat permanen, tersimpan di perangkat dan tetap ada walau aplikasi
+                                    ditutup atau dihidupkan ulang.</li>
+                                <li><strong>Autentikasi:</strong> Setiap pengguna memiliki akun sendiri dengan
+                                    password yang diamankan melalui salting dan hashing SHA-256, serta data
+                                    transaksi yang terisolasi per <code>user_id</code>.</li>
+                                <li><strong>Integrasi dengan navigasi lama:</strong> Setelah login,
+                                    <code>MainScreen</code> beserta Named Routes dan Bottom Navigation Bar dari
+                                    Praktikum 5 tetap berfungsi tanpa perubahan struktur, membuktikan fitur baru
+                                    dapat ditambahkan tanpa merombak arsitektur yang sudah ada.
+                                </li>
+                                <li><strong>Distribusi:</strong> Dengan build APK dan video penjelasan, aplikasi
+                                    dapat diuji dan dinilai secara langsung di perangkat Android.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Konten Laporan -->
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row flex justify-content-end mb-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">About Website</h5>
+                    <p>
+                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (Deriel)
+                        dan daftar project yang pernah dikerjakan.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="../about.html" class="footer-link">About Me</a>
+                    <a href="../portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="../blog.html" class="footer-link">Blog</a>
+                    <a href="../contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">My Contact</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Padang, Indonesia</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> dariel@gmail.com</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/bilra_ch?igsh=em5pNzh0b2hoa3o3" class="social-icon"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://github.com/Bilra-Hkr" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+                            class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright-border">
+                <div class="text-md-center">
+                    <p class="mb-0">&copy;2025 Copyright : Deriel Chaerahman.</p>
+                    <p class="mb-0 small">Develop with Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-5x9p2MNl82nCPx+6sGr2nPv+4rgaQPc+e8plOFqLPlXkF2tWcseSVPyj9EWmFG+E"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

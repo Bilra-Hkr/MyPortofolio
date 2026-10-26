@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laporan Praktikum 5 Aplikasi Mobile - Deriel Chaerahman</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- ===== Style tambahan untuk Code Window (pindahkan ke style.css jika ingin konsisten) ===== -->
+    <style>
+        .code-window {
+            background-color: #1e1e2e;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0 1.5rem 0;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        .code-window-header {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 14px;
+            background-color: #181825;
+        }
+
+        .code-window-header .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot.red {
+            background-color: #ff5f56;
+        }
+
+        .dot.yellow {
+            background-color: #ffbd2e;
+        }
+
+        .dot.green {
+            background-color: #27c93f;
+        }
+
+        .code-window-filename {
+            margin-left: 10px;
+            color: #8a8a9c;
+            font-size: 0.8rem;
+            font-family: "Consolas", "Courier New", monospace;
+        }
+
+        .code-window pre {
+            margin: 0;
+            padding: 16px 18px;
+            overflow-x: auto;
+        }
+
+        .code-window code {
+            font-family: "Consolas", "Fira Code", "Courier New", monospace;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            white-space: pre;
+            color: #cdd6f4;
+        }
+
+        .tok-kw {
+            color: #cba6f7;
+        }
+
+        /* keyword: class, extends, return, final, void, const, import */
+        .tok-type {
+            color: #89dceb;
+        }
+
+        /* tipe data / nama class */
+        .tok-str {
+            color: #a6e3a1;
+        }
+
+        /* string */
+        .tok-fn {
+            color: #f9e2af;
+        }
+
+        /* nama fungsi/method */
+        .tok-prop {
+            color: #89b4fa;
+        }
+
+        /* property/parameter */
+        .tok-com {
+            color: #6c7086;
+            font-style: italic;
+        }
+
+        /* komentar */
+        .tok-num {
+            color: #fab387;
+        }
+
+        /* angka */
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Deriel C.</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="../blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Header Laporan -->
+    <section class="py-4 mt-5">
+        <div class="container py-4">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-transparent p-0 mb-0">
+                    <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-white">Home
+                            /</a></li>
+                    <li class="breadcrumb-item"><a href="../blog.html" class="text-decoration-none text-white">Blog
+                            /</a></li>
+                    <li class="breadcrumb-item active text-white" aria-current="page">Laporan Praktikum</li>
+                </ol>
+            </nav>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-5 fw-bold text-gradient mb-3">Laporan Praktikum 5 Aplikasi Mobile</h1>
+                    <p class="text-white fs-5">Arsitektur Navigasi<br>(Named Routes &amp; Bottom Navigation Bar)
+                    </p>
+                    <p class="text-white fs-7">Dibuat : Oktober 2026</p>
+                    <a href="https://github.com/Bilra-Hkr/DerielChaerahman_2411533007_P.Apk-Mobile" target="_blank"
+                        class="btn btn-outline-light rounded-pill px-4 py-2">
+                        <i class="bi bi-github me-2"></i> Repository GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Header Laporan -->
+
+    <!-- Konten Laporan -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <!-- ==================== PENDAHULUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Pendahuluan</h4>
+                            <p class="text-white">
+                                Praktikum ini melanjutkan aplikasi <em>Expense Tracker</em> dari Praktikum 4 yang
+                                sebelumnya telah menggunakan <code>Navigator.push</code> dan
+                                <code>MaterialPageRoute</code> untuk perpindahan antar halaman. Pada Praktikum 5,
+                                navigasi diubah
+                                menjadi lebih terstruktur menggunakan <strong>Named Routes</strong>, yaitu sistem
+                                penamaan rute berbasis <code>String</code> yang didaftarkan terpusat di
+                                <code>MaterialApp</code>, untuk mencegah <em>spaghetti code</em> ketika aplikasi
+                                memiliki banyak layar.
+                            </p>
+                            <p class="text-white">
+                                Kemudian aplikasi menambahkan <strong>BottomNavigationBar</strong>
+                                sebagai tab yang ditampilkan bawah halaman, dengan mengintegrasikan tiga halaman utama
+                                yaitu, Dashboard, Riwayat,
+                                dan Profil dalam satu wadah (<code>MainScreen</code>) tanpa perlu berpindah
+                                <code>Scaffold</code>. Sebagai pelengkap tugas praktikum, ditambahkan pula halaman
+                                <strong>Login</strong> yang mengirimkan data email pengguna ke halaman utama melalui
+                                Constructor, menggabungkan konsep passing data dari Praktikum 4 dengan arsitektur
+                                navigasi baru ini.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TUJUAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Tujuan Praktikum</h4>
+                            <ul class="text-white mb-0">
+                                <li>Menerapkan <strong>Named Routes</strong> untuk navigasi terpusat dan rapi.</li>
+                                <li>Membangun menu bawah (<code>BottomNavigationBar</code>) ala aplikasi modern.
+                                </li>
+                                <li>Mengintegrasikan Dashboard, Riwayat, dan Profil dalam satu wadah
+                                    (<code>MainScreen</code>).</li>
+                                <li>Membuat halaman Riwayat Transaksi dan halaman Profil (avatar, nama, email,
+                                    tombol logout).</li>
+                                <li>Membuat halaman Login yang mengirim data email ke halaman utama menggunakan
+                                    Constructor.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== LANDASAN TEORI ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-book me-2"></i>Landasan Teori</h4>
+
+                            <div class="accordion accordion-flush custom-accordion" id="accordionTeori">
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#teori-namedroutes" aria-expanded="true">
+                                            Named Routes
+                                        </button>
+                                    </h2>
+                                    <div id="teori-namedroutes" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            Named Routes adalah teknik mendefinisikan nama <strong>string</strong>
+                                            untuk setiap halaman di dalam <code>MaterialApp</code>. Alih-alih
+                                            memanggil <code>Navigator.push(MaterialPageRoute(...))</code> berulang
+                                            kali di banyak tempat, setiap halaman cukup didaftarkan sekali di
+                                            properti <code>routes</code>, lalu dipanggil dengan
+                                            <code>Navigator.pushNamed(context, '/namaRute')</code>. Pendekatan ini
+                                            mencegah <em>spaghetti code</em> saat aplikasi memiliki banyak layar
+                                            karena seluruh peta navigasi terpusat di satu tempat.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-routesprop"
+                                            aria-expanded="false">
+                                            Properti routes &amp; initialRoute</code>
+                                        </button>
+                                    </h2>
+                                    <div id="teori-routesprop" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>routes</code> adalah sebuah
+                                            <code>Map&lt;String, WidgetBuilder&gt;</code>
+                                            yang berfungsi sebagai tabel peta rute aplikasi — setiap key berupa nama
+                                            rute (misalnya <code>'/add'</code>) dipasangkan dengan fungsi yang
+                                            mengembalikan widget halaman tujuan. Sementara itu,
+                                            <code>initialRoute</code> menentukan halaman pertama yang dimuat saat
+                                            aplikasi dibuka, umumnya diisi dengan <code>'/'</code>. Parameter
+                                            <code>home</code> pada <code>MaterialApp</code> harus dihapus ketika
+                                            <code>initialRoute</code> digunakan agar tidak terjadi konflik.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-bottomnav"
+                                            aria-expanded="false">
+                                            BottomNavigationBar
+                                        </button>
+                                    </h2>
+                                    <div id="teori-bottomnav" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>BottomNavigationBar</code> adalah menu navigasi di bagian bawah
+                                            layar yang mengontrol tampilan utama (<code>body</code>) tanpa berpindah
+                                            <code>Scaffold</code> atau melakukan <code>Navigator.push</code>. Karena
+                                            halaman hanya "ditukar" di dalam satu <code>Scaffold</code> yang sama,
+                                            transisi antar tab terasa instan tanpa animasi slide dan tanpa tombol
+                                            back di <code>AppBar</code> — cocok untuk halaman-halaman level teratas
+                                            seperti Beranda, Riwayat, dan Profil.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#teori-currentindex"
+                                            aria-expanded="false">
+                                            currentIndex, onTap &amp; items
+                                        </button>
+                                    </h2>
+                                    <div id="teori-currentindex" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionTeori">
+                                        <div class="accordion-body text-white">
+                                            <code>currentIndex</code> adalah indeks tab yang sedang aktif (0, 1,
+                                            atau 2), yang nilainya disimpan dalam variabel state karena akan selalu
+                                            berubah-ubah saat pengguna berpindah tab — sehingga
+                                            <code>MainScreen</code> wajib berupa <code>StatefulWidget</code>.
+                                            Callback <code>onTap</code> dipanggil setiap kali sebuah tab diketuk,
+                                            biasanya memanggil <code>setState()</code> untuk memperbarui
+                                            <code>currentIndex</code>. Properti <code>items</code> berisi daftar
+                                            <code>BottomNavigationBarItem</code> yang masing-masing memiliki
+                                            <code>icon</code> dan <code>label</code> untuk ditampilkan pada menu.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== ALAT DAN BAHAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-tools me-2"></i>Alat dan Bahan</h4>
+                            <ul class="text-white mb-0">
+                                <li>Perangkat komputer atau laptop</li>
+                                <li>Jaringan internet</li>
+                                <li>Visual Studio Code IDE</li>
+                                <li>SDK Flutter</li>
+                                <li>Visual Studio (Emulator untuk run tampilan mobile)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- ==================== Langkah Pengerjaan ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-4"><i class="bi bi-list-ol me-2"></i>Langkah Pengerjaan
+                            </h4>
+
+                            <!-- ===== POINT A: main.dart ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5">A. Mendaftarkan Named Routes
+                                (<code>main.dart</code>)</p>
+                            <p class="text-white mb-2">
+                                Parameter <code>home</code> pada <code>MaterialApp</code> dihapus dan diganti
+                                dengan <code>initialRoute</code> serta <code>routes</code>. Rute <code>'/'</code>
+                                menunjuk ke <code>LoginScreen</code> sebagai halaman pertama, rute <code>'/home'</code>
+                                menunjuk ke <code>MainScreen</code> (layar ber-tab), dan rute <code>'/add'</code>
+                                menunjuk ke <code>AddTransactionScreen</code>.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">main.dart</span>
+                                </div>
+                                <pre><code><span class="tok-kw">import</span> <span class="tok-str">'package:flutter/material.dart'</span>;
+<span class="tok-kw">import</span> <span class="tok-str">'main_screen.dart'</span>;
+<span class="tok-kw">import</span> <span class="tok-str">'login_screen.dart'</span>;
+<span class="tok-kw">import</span> <span class="tok-str">'add_transaction_screen.dart'</span>;
+
+<span class="tok-type">void</span> <span class="tok-fn">main</span>() {
+  <span class="tok-fn">runApp</span>(<span class="tok-kw">const</span> <span class="tok-type">MyApp</span>());
+}
+
+<span class="tok-kw">class</span> <span class="tok-type">MyApp</span> <span class="tok-kw">extends</span> <span class="tok-type">StatelessWidget</span> {
+  <span class="tok-kw">const</span> <span class="tok-fn">MyApp</span>({<span class="tok-prop">super.key</span>});
+
+  <span class="tok-com">@override</span>
+  <span class="tok-type">Widget</span> <span class="tok-fn">build</span>(<span class="tok-type">BuildContext</span> context) {
+    <span class="tok-kw">return</span> <span class="tok-type">MaterialApp</span>(
+      debugShowCheckedModeBanner: <span class="tok-kw">false</span>,
+      title: <span class="tok-str">'Expense Tracker Final'</span>,
+      theme: <span class="tok-type">ThemeData</span>(primarySwatch: <span class="tok-prop">Colors</span>.amber),
+      <span class="tok-com">// MENGGUNAKAN NAMED ROUTES</span>
+      initialRoute: <span class="tok-str">'/'</span>,
+      routes: {
+        <span class="tok-str">'/'</span>: (context) <span class="tok-prop">=&gt;</span> <span class="tok-kw">const</span> <span class="tok-type">LoginScreen</span>(),
+        <span class="tok-str">'/home'</span>: (context) <span class="tok-prop">=&gt;</span> <span class="tok-kw">const</span> <span class="tok-type">MainScreen</span>(),
+        <span class="tok-str">'/add'</span>: (context) <span class="tok-prop">=&gt;</span> <span class="tok-kw">const</span> <span class="tok-type">AddTransactionScreen</span>(),
+      },
+    );
+  }
+}</code></pre>
+                            </div>
+
+                            <!-- ===== POINT B: main_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5 mt-5">B. Kolom Tab menggunakan
+                                BottomNavigationBar (<code>main_screen.dart</code>)</p>
+                            <p class="text-white mb-2">
+                                <code>MainScreen</code> dijadikan <code>StatefulWidget</code> karena tab yang aktif
+                                akan selalu berubah-ubah nilainya. Variabel <code>_selectedIndex</code> menyimpan
+                                indeks tab aktif, sementara <code>_pages</code> berisi daftar tiga halaman
+                                (Dashboard, Riwayat, Profil) yang ditukar sesuai tab yang dipilih, tanpa berpindah
+                                <code>Scaffold</code>.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">main_screen.dart</span>
+                                </div>
+                                <pre><code><span class="tok-kw">import</span> <span class="tok-str">'package:flutter/material.dart'</span>;
+<span class="tok-kw">import</span> <span class="tok-str">'dashboard_screen.dart'</span>;
+<span class="tok-kw">import</span> <span class="tok-str">'history_screen.dart'</span>;
+<span class="tok-kw">import</span> <span class="tok-str">'profile_screen.dart'</span>;
+
+<span class="tok-kw">class</span> <span class="tok-type">MainScreen</span> <span class="tok-kw">extends</span> <span class="tok-type">StatefulWidget</span> {
+  <span class="tok-kw">final</span> <span class="tok-type">String</span>? userEmail;
+  <span class="tok-kw">const</span> <span class="tok-fn">MainScreen</span>({<span class="tok-prop">super.key</span>, <span class="tok-prop">this.userEmail</span>});
+
+  <span class="tok-com">@override</span>
+  <span class="tok-type">State</span>&lt;<span class="tok-type">MainScreen</span>&gt; <span class="tok-fn">createState</span>() <span class="tok-prop">=&gt;</span> _<span class="tok-type">MainScreenState</span>();
+}
+
+<span class="tok-kw">class</span> _<span class="tok-type">MainScreenState</span> <span class="tok-kw">extends</span> <span class="tok-type">State</span>&lt;<span class="tok-type">MainScreen</span>&gt; {
+  <span class="tok-type">int</span> _selectedIndex = <span class="tok-num">0</span>; <span class="tok-com">// Tab pertama aktif (Beranda)</span>
+
+  <span class="tok-com">// Daftar layar yang disuntikkan ke body</span>
+  <span class="tok-kw">late</span> <span class="tok-kw">final</span> <span class="tok-type">List</span>&lt;<span class="tok-type">Widget</span>&gt; _pages = [
+    <span class="tok-type">DashboardScreen</span>(userEmail: <span class="tok-prop">widget.userEmail</span>),
+    <span class="tok-kw">const</span> <span class="tok-type">HistoryScreen</span>(),
+    <span class="tok-kw">const</span> <span class="tok-type">ProfileScreen</span>(),
+  ];
+
+  <span class="tok-type">void</span> <span class="tok-fn">_onItemTapped</span>(<span class="tok-type">int</span> index) {
+    <span class="tok-fn">setState</span>(() {
+      _selectedIndex = index;
+    });
+  }
+
+  <span class="tok-com">@override</span>
+  <span class="tok-type">Widget</span> <span class="tok-fn">build</span>(<span class="tok-type">BuildContext</span> context) {
+    <span class="tok-kw">return</span> <span class="tok-type">Scaffold</span>(
+      <span class="tok-com">// Body menampilkan widget sesuai index tab</span>
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: <span class="tok-type">BottomNavigationBar</span>(
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        selectedItemColor: <span class="tok-prop">Colors</span>.amber[<span class="tok-num">800</span>],
+        items: <span class="tok-kw">const</span> [
+          <span class="tok-type">BottomNavigationBarItem</span>(icon: <span class="tok-type">Icon</span>(<span class="tok-prop">Icons</span>.home), label: <span class="tok-str">'Beranda'</span>),
+          <span class="tok-type">BottomNavigationBarItem</span>(icon: <span class="tok-type">Icon</span>(<span class="tok-prop">Icons</span>.history), label: <span class="tok-str">'Riwayat'</span>),
+          <span class="tok-type">BottomNavigationBarItem</span>(icon: <span class="tok-type">Icon</span>(<span class="tok-prop">Icons</span>.person), label: <span class="tok-str">'Profil'</span>),
+        ],
+      ),
+    );
+  }
+}</code></pre>
+                            </div>
+
+                            <!-- ===== POINT C: pembaruan dashboard_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-2 fs-5 mt-5">C. Update FloatingActionButton di
+                                <code>dashboard_screen.dart</code>
+                            </p>
+                            <p class="text-white mb-2">
+                                Tombol <code>FloatingActionButton</code> yang sebelumnya memanggil
+                                <code>Navigator.push(MaterialPageRoute(...))</code> diganti menjadi
+                                <code>Navigator.pushNamed</code> yang memanggil rute <code>'/add'</code> yang
+                                sudah didaftarkan di <code>main.dart</code>.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">dashboard_screen.dart</span>
+                                </div>
+                                <pre><code>floatingActionButton: <span class="tok-type">FloatingActionButton</span>(
+  backgroundColor: <span class="tok-prop">Colors</span>.amber,
+  child: <span class="tok-kw">const</span> <span class="tok-type">Icon</span>(<span class="tok-prop">Icons</span>.add),
+  onPressed: () {
+    <span class="tok-com">// Memanggil Rute yang sudah didaftarkan di main.dart</span>
+    <span class="tok-prop">Navigator</span>.<span class="tok-fn">pushNamed</span>(context, <span class="tok-str">'/add'</span>);
+  },
+),</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TUGAS PRAKTIKUM ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-journal-check me-2"></i>Tugas
+                                Praktikum</h4>
+                            <p class="text-white mb-2">
+                                Tiga tugas sebagai pelengkap arsitektur navigasi: halaman Riwayat
+                                Transaksi, halaman Profil, dan halaman Login dengan passing data email.
+                            </p>
+
+                            <!-- ===== Tugas 1: history_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-1 mt-4">1. Halaman Riwayat Transaksi
+                                (<code>history_screen.dart</code>)</p>
+                            <p class="text-white mb-1">
+                                Menampilkan daftar transaksi menggunakan <code>ListView.separated</code>, dengan
+                                setiap baris berupa <code>ListTile</code> yang memiliki ikon lingkaran berwarna
+                                hijau (pemasukan) atau merah (pengeluaran) sesuai nilai nominal transaksi.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">history_screen.dart</span>
+                                </div>
+                                <pre><code><span class="tok-kw">class</span> <span class="tok-type">HistoryScreen</span> <span class="tok-kw">extends</span> <span class="tok-type">StatelessWidget</span> {
+  <span class="tok-kw">const</span> <span class="tok-fn">HistoryScreen</span>({<span class="tok-prop">super.key</span>});
+
+  <span class="tok-com">@override</span>
+  <span class="tok-type">Widget</span> <span class="tok-fn">build</span>(<span class="tok-type">BuildContext</span> context) {
+    <span class="tok-kw">final</span> transactions = [
+      {<span class="tok-str">"title"</span>: <span class="tok-str">"Makan Siang"</span>, <span class="tok-str">"amount"</span>: <span class="tok-num">-50000</span>, <span class="tok-str">"icon"</span>: <span class="tok-prop">Icons</span>.restaurant},
+      {<span class="tok-str">"title"</span>: <span class="tok-str">"Gaji Bulanan"</span>, <span class="tok-str">"amount"</span>: <span class="tok-num">5000000</span>, <span class="tok-str">"icon"</span>: <span class="tok-prop">Icons</span>.attach_money},
+      <span class="tok-com">// ...data transaksi lainnya</span>
+    ];
+
+    <span class="tok-kw">return</span> <span class="tok-type">Scaffold</span>(
+      appBar: <span class="tok-type">AppBar</span>(title: <span class="tok-kw">const</span> <span class="tok-type">Text</span>(<span class="tok-str">"Riwayat Transaksi"</span>)),
+      body: <span class="tok-type">ListView</span>.<span class="tok-fn">separated</span>(
+        itemCount: transactions.length,
+        separatorBuilder: (context, index) <span class="tok-prop">=&gt;</span> <span class="tok-kw">const</span> <span class="tok-type">Divider</span>(),
+        itemBuilder: (context, index) {
+          <span class="tok-kw">final</span> tx = transactions[index];
+          <span class="tok-kw">final</span> isIncome = tx[<span class="tok-str">"amount"</span>] &gt; <span class="tok-num">0</span>;
+          <span class="tok-kw">return</span> <span class="tok-type">ListTile</span>(
+            leading: <span class="tok-type">CircleAvatar</span>(
+              backgroundColor: isIncome ? <span class="tok-prop">Colors</span>.green[<span class="tok-num">100</span>] : <span class="tok-prop">Colors</span>.red[<span class="tok-num">100</span>],
+              child: <span class="tok-type">Icon</span>(tx[<span class="tok-str">"icon"</span>], color: isIncome ? <span class="tok-prop">Colors</span>.green : <span class="tok-prop">Colors</span>.red),
+            ),
+            title: <span class="tok-type">Text</span>(tx[<span class="tok-str">"title"</span>]),
+            trailing: <span class="tok-type">Text</span>(<span class="tok-str">"${isIncome ? '+' : '-'} Rp ${tx['amount']}"</span>),
+          );
+        },
+      ),
+    );
+  }
+}</code></pre>
+                            </div>
+
+                            <!-- ===== Tugas 2: profile_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-1 mt-4">2. Halaman Profil
+                                (<code>profile_screen.dart</code>)</p>
+                            <p class="text-white mb-1">
+                                Menampilkan avatar, nama, dan email pengguna secara terpusat, dilengkapi tombol
+                                <strong>Logout</strong> yang menggunakan <code>pushNamedAndRemoveUntil</code> agar
+                                seluruh riwayat navigasi (stack) dihapus dan pengguna tidak bisa menekan tombol
+                                back kembali ke halaman utama setelah logout.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">profile_screen.dart</span>
+                                </div>
+                                <pre><code><span class="tok-kw">class</span> <span class="tok-type">ProfileScreen</span> <span class="tok-kw">extends</span> <span class="tok-type">StatelessWidget</span> {
+  <span class="tok-kw">const</span> <span class="tok-fn">ProfileScreen</span>({<span class="tok-prop">super.key</span>});
+
+  <span class="tok-com">@override</span>
+  <span class="tok-type">Widget</span> <span class="tok-fn">build</span>(<span class="tok-type">BuildContext</span> context) {
+    <span class="tok-kw">return</span> <span class="tok-type">Scaffold</span>(
+      body: <span class="tok-type">Center</span>(
+        child: <span class="tok-type">Column</span>(
+          mainAxisAlignment: <span class="tok-prop">MainAxisAlignment</span>.center,
+          children: [
+            <span class="tok-kw">const</span> <span class="tok-type">CircleAvatar</span>(
+              radius: <span class="tok-num">55</span>,
+              child: <span class="tok-type">Icon</span>(<span class="tok-prop">Icons</span>.person, size: <span class="tok-num">60</span>),
+            ),
+            <span class="tok-kw">const</span> <span class="tok-type">Text</span>(<span class="tok-str">"Budi Santoso"</span>, style: <span class="tok-type">TextStyle</span>(fontSize: <span class="tok-num">22</span>)),
+            <span class="tok-type">Text</span>(<span class="tok-str">"budi.santoso@email.com"</span>),
+            <span class="tok-type">ElevatedButton</span>.<span class="tok-fn">icon</span>(
+              onPressed: () {
+                <span class="tok-com">// Hapus seluruh stack navigasi, kembali ke Login</span>
+                <span class="tok-prop">Navigator</span>.<span class="tok-fn">pushNamedAndRemoveUntil</span>(
+                  context, <span class="tok-str">'/'</span>, (route) <span class="tok-prop">=&gt;</span> <span class="tok-kw">false</span>,
+                );
+              },
+              icon: <span class="tok-kw">const</span> <span class="tok-type">Icon</span>(<span class="tok-prop">Icons</span>.logout),
+              label: <span class="tok-kw">const</span> <span class="tok-type">Text</span>(<span class="tok-str">"Logout"</span>),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}</code></pre>
+                            </div>
+
+                            <!-- ===== Tugas 3: login_screen.dart ===== -->
+                            <p class="text-white fw-semibold mb-1 mt-4">3. Halaman Login dengan Passing Data
+                                (<code>login_screen.dart</code>)</p>
+                            <p class="text-white mb-1">
+                                Berisi <code>TextField</code> email dan password serta tombol Login. Saat tombol
+                                diketuk, nilai email diambil dari <code>TextEditingController</code> dan dikirim
+                                ke <code>MainScreen</code> melalui <strong>Constructor</strong>, lalu ditampilkan
+                                di halaman Dashboard. Berpindah halaman menggunakan
+                                <code>Navigator.pushReplacement</code> agar pengguna tidak bisa menekan back ke
+                                halaman Login.
+                            </p>
+                            <div class="code-window">
+                                <div class="code-window-header">
+                                    <span class="dot red"></span><span class="dot yellow"></span><span
+                                        class="dot green"></span>
+                                    <span class="code-window-filename">login_screen.dart</span>
+                                </div>
+                                <pre><code><span class="tok-type">void</span> <span class="tok-fn">_login</span>() {
+  <span class="tok-kw">final</span> email = _emailController.text.trim();
+
+  <span class="tok-kw">if</span> (email.isEmpty || _passwordController.text.isEmpty) {
+    <span class="tok-prop">ScaffoldMessenger</span>.<span class="tok-fn">of</span>(context).<span class="tok-fn">showSnackBar</span>(
+      <span class="tok-kw">const</span> <span class="tok-type">SnackBar</span>(content: <span class="tok-type">Text</span>(<span class="tok-str">"Email dan password tidak boleh kosong"</span>)),
+    );
+    <span class="tok-kw">return</span>;
+  }
+
+  <span class="tok-com">// Pindah ke MainScreen sambil membawa data email</span>
+  <span class="tok-prop">Navigator</span>.<span class="tok-fn">pushReplacement</span>(
+    context,
+    <span class="tok-type">MaterialPageRoute</span>(builder: (context) <span class="tok-prop">=&gt;</span> <span class="tok-type">MainScreen</span>(userEmail: email)),
+  );
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== TAMPILAN AKHIR ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3"><i class="bi bi-phone me-2"></i>Tampilan Akhir
+                                Aplikasi</h4>
+                            <p class="text-white">
+                                Aplikasi Praktikum 5 terdiri dari lima layar yang terhubung melalui Named Routes
+                                dan Bottom Navigation Bar:
+                            </p>
+                            <ul class="text-white mb-3">
+                                <li><strong>Login</strong> : Form email &amp; password, mengirim data ke halaman
+                                    utama.</li>
+                                <li><strong>Dashboard</strong> : Menampilkan saldo dan sapaan email pengguna.</li>
+                                <li><strong>Riwayat Transaksi</strong> : Daftar transaksi dengan indikator
+                                    pemasukan/pengeluaran.</li>
+                                <li><strong>Detail Transaksi</strong> : Rincian transaksi yang dikirim via
+                                    Constructor (dari Praktikum 4).</li>
+                                <li><strong>Profil</strong> : Avatar, nama, email, dan tombol logout.</li>
+                            </ul>
+                            <div class="text-center">
+                                <img src="img/prak5-login.png" alt="Halaman Login" width="260" class="m-2">
+                                <img src="img/prak5-dashboard.png" alt="Halaman Dashboard" width="260" class="m-2">
+                                <img src="img/prak5-catat.png" alt="Halaman Catat Transaksi" width="260" class="m-2">
+                                <img src="img/prak5-riwayat.png" alt="Halaman Riwayat Transaksi" width="260"
+                                    class="m-2">
+                                <img src="img/prak5-detail.png" alt="Halaman Detail Transaksi" width="260" class="m-2">
+                                <img src="img/prak5-profile.png" alt="Halaman Profile" width="260" class="m-2">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ==================== KESIMPULAN ==================== -->
+                    <div class="card contact-info-card mb-5">
+                        <div class="card-body">
+                            <h4 class="fw-bold text-white mb-3">Kesimpulan</h4>
+                            <p class="text-white">
+                                Melalui Praktikum 5 ini, aplikasi <em>Expense Tracker</em> berhasil dikembangkan
+                                dari navigasi berbasis <code>Navigator.push</code> langsung di Praktikum 4, menjadi
+                                arsitektur navigasi yang lebih terstruktur dan skalabel.
+                            </p>
+                            <ul class="text-white">
+                                <li><strong>Named Routes:</strong> Pusat navigasi di satu tempat
+                                    (<code>main.dart</code>), membuat kode lebih rapi dan mudah dikembangkan saat
+                                    jumlah halaman bertambah.</li>
+                                <li><strong>BottomNavigationBar:</strong> Memungkinkan perpindahan antar tab tanpa
+                                    animasi push/pop dan
+                                    tanpa kehilangan <code>Scaffold</code>.</li>
+                                <li><strong>Passing Data via Constructor &amp; Named Routes:</strong> Data email
+                                    dari halaman Login tetap bisa dikirim ke <code>MainScreen</code> meski alur
+                                    navigasi sudah berbasis nama rute, membuktikan kedua konsep dapat digabungkan.
+                                </li>
+                                <li><strong>pushNamedAndRemoveUntil:</strong> Berguna untuk kasus logout, di mana
+                                    seluruh riwayat navigasi perlu dihapus agar pengguna tidak bisa kembali ke
+                                    halaman sebelumnya.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akhir Konten Laporan -->
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row flex justify-content-end mb-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">About Website</h5>
+                    <p>
+                        Website portofolio ini menampilkan informasi diri dan kemampuan pengembang (Deriel)
+                        dan daftar project yang pernah dikerjakan.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <a href="../index.html" class="footer-link">Home</a>
+                    <a href="../about.html" class="footer-link">About Me</a>
+                    <a href="../portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="../blog.html" class="footer-link">Blog</a>
+                    <a href="../contact.html" class="footer-link">Contact</a>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">My Contact</h5>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i> Padang, Indonesia</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i> dariel@gmail.com</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/bilra_ch?igsh=em5pNzh0b2hoa3o3" class="social-icon"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://github.com/Bilra-Hkr" class="social-icon"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit"
+                            class="social-icon"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row copyright-border">
+                <div class="text-md-center">
+                    <p class="mb-0">&copy;2025 Copyright : Deriel Chaerahman.</p>
+                    <p class="mb-0 small">Develop with Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-5x9p2MNl82nCPx+6sGr2nPv+4rgaQPc+e8plOFqLPlXkF2tWcseSVPyj9EWmFG+E"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
